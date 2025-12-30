@@ -1,8 +1,8 @@
 import type { StoreProduct } from '../types/component.types';
 import twitter from '../../assets/twitter.avif';
 import instagram from '../../assets/instagram.avif';
-import instagramTool from '../../assets/instagram-tool.avif';
-import twiterTool from '../../assets/twitter-tool.avif';
+import instagramTool from '../../assets/instagramTool.avif';
+import twiterTool from '../../assets/twitterTool.avif';
 
 export const STORE_PRODUCTS: StoreProduct[] = [
   // ACCOUNTS
