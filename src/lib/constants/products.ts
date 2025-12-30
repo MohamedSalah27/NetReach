@@ -36,17 +36,19 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     id: 'px-01',
     category: 'proxy',
     name: 'Mobile ISP Proxy (USA / EU)',
-    description: `Real 4G/5G mobile IPs with ultra-low ban rates.
-      Ideal for X, Instagram, and high-risk automation at scale.`,
+    description: `Real 4G/5G mobile IPs with ultra-low ban rates. 
+    Ideal for X, Instagram, and high-risk automation at scale.`,
     price: 10,
+    image: instagram,
   },
   {
     id: 'px-02',
     category: 'proxy',
     name: 'Residential ISP Proxy (USA / EU)',
-    description: `Real residential IPs from trusted ISPs.
-Stable, low-detection proxies for automation, scraping, and account management.`,
+    description: `Real residential IPs from trusted ISPs. 
+    Stable, low-detection proxies for automation, scraping, and account management.`,
     price: 10,
+    image: instagram,
   },
 
   // TOOLS
