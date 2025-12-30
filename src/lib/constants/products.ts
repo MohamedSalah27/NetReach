@@ -1,7 +1,7 @@
 import type { StoreProduct } from '../types/component.types';
 import twiter from '../../assets/twitter.avif';
-import Instagram from '../../assets/instagram.avif';
-import instagramTool from '../../assets/Instagram-tool.avif';
+import instagram from '../../assets/instagram.avif';
+import instagramTool from '../../assets/instagram-tool.avif';
 import twiterTool from '../../assets/twitter-tool.avif';
 
 export const STORE_PRODUCTS: StoreProduct[] = [
@@ -28,7 +28,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'Instagram',
     description: '2007 to 2017 Old Instagram Account with MAIL ACCESS',
     price: 5,
-    image: Instagram,
+    image: instagram,
   },
 
   // Proxy
