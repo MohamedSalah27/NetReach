@@ -10,9 +10,9 @@ import {
   Loader2,
 } from 'lucide-react';
 import { useToast } from '../hooks/useToast';
-import USDT from '../assets/usdt.avif';
-import USDC from '../assets/usdc.avif';
-import Bitcoin from '../assets/bitcoin.avif';
+import USDT from '/images/usdt.avif';
+import USDC from '/images/usdc.avif';
+import Bitcoin from '/images/bitcoin.avif';
 import type { StoreProduct } from '../lib/types';
 
 export const CheckoutPage: React.FC = () => {

@@ -1,8 +1,4 @@
 import type { StoreProduct } from '../types/component.types';
-import twitter from '../../assets/twitter.avif';
-import instagram from '../../assets/instagram.avif';
-import instagramTool from '../../assets/instagramTool.avif';
-import twitterTool from '../../assets/twitterTool.avif';
 
 export const STORE_PRODUCTS: StoreProduct[] = [
   // ACCOUNTS
@@ -12,7 +8,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'X/Twitter',
     description: '2018-2024 Old Twitter/X Account with MAIL ACCESS',
     price: 4,
-    image: twitter,
+    image: '/images/twitter.avif',
   },
   {
     id: 'acc-02',
@@ -20,7 +16,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'X/Twitter',
     description: '2007 to 2016 Old Twitter/X Account with MAIL ACCESS',
     price: 5,
-    image: twitter,
+    image: '/images/twitter.avif',
   },
   {
     id: 'acc-03',
@@ -28,7 +24,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'Instagram',
     description: '2007 to 2017 Old Instagram Account with MAIL ACCESS',
     price: 5,
-    image: instagram,
+    image: '/images/instagram.avif',
   },
 
   // Proxy
@@ -39,7 +35,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     description: `Real 4G/5G mobile IPs with ultra-low ban rates. 
     Ideal for X, Instagram, and high-risk automation at scale.`,
     price: 10,
-    image: instagram,
+    image: '/images/instagram.avif',
   },
   {
     id: 'px-02',
@@ -48,7 +44,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     description: `Real residential IPs from trusted ISPs. 
     Stable, low-detection proxies for automation, scraping, and account management.`,
     price: 10,
-    image: instagram,
+    image: '/images/instagram.avif',
   },
 
   // TOOLS
@@ -59,7 +55,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     description:
       'MKT Instagram Software supports automatic posting of sales posts, Instagram reels, automatic searching and following based on potential Username lists, facilitates easy order closing.',
     price: 10,
-    image: instagramTool,
+    image: '/images/instagramTool.avif',
   },
   {
     id: 'tl-02',
@@ -68,6 +64,6 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     description:
       'MKT Twitter Software facilitates automatic Twitter profile updates, posting, bulk account interaction, earning, and automated data scanning of any account of any target audience',
     price: 10,
-    image: twitterTool,
+    image: '/images/twitterTool.avif',
   },
 ];
