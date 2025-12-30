@@ -1,7 +1,6 @@
 import type { StoreProduct } from '../types/component.types';
 import twiter from '../../assets/twitter.avif';
 import Instagram from '../../assets/instagram.avif';
-// import proxy from '../../assets/twitter.jpg';
 import instagramTool from '../../assets/Instagram-tool.avif';
 import twiterTool from '../../assets/twitter-tool.avif';
 
@@ -39,8 +38,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'Mobile ISP Proxy (USA / EU)',
     description: `Real 4G/5G mobile IPs with ultra-low ban rates.
       Ideal for X, Instagram, and high-risk automation at scale.`,
-    price: 150,
-    image: '/assets/proxy.png',
+    price: 10,
   },
   {
     id: 'px-02',
@@ -48,8 +46,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'Residential ISP Proxy (USA / EU)',
     description: `Real residential IPs from trusted ISPs.
 Stable, low-detection proxies for automation, scraping, and account management.`,
-    price: 150,
-    image: '/assets/proxy.png',
+    price: 10,
   },
 
   // TOOLS
@@ -59,7 +56,7 @@ Stable, low-detection proxies for automation, scraping, and account management.`
     name: 'MKT Instagram Software​',
     description:
       'MKT Instagram Software supports automatic posting of sales posts, Instagram reels, automatic searching and following based on potential Username lists, facilitates easy order closing.',
-    price: 899,
+    price: 10,
     image: instagramTool,
   },
   {
@@ -68,7 +65,7 @@ Stable, low-detection proxies for automation, scraping, and account management.`
     name: 'MKT Twitter Software',
     description:
       'MKT Twitter Software facilitates automatic Twitter profile updates, posting, bulk account interaction, earning, and automated data scanning of any account of any target audience',
-    price: 899,
+    price: 10,
     image: twiterTool,
   },
 ];
