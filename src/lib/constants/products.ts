@@ -2,7 +2,7 @@ import type { StoreProduct } from '../types/component.types';
 import twitter from '../../assets/twitter.avif';
 import instagram from '../../assets/instagram.avif';
 import instagramTool from '../../assets/instagramTool.avif';
-import twiterTool from '../../assets/twitterTool.avif';
+import twitterTool from '../../assets/twitterTool.avif';
 
 export const STORE_PRODUCTS: StoreProduct[] = [
   // ACCOUNTS
@@ -68,6 +68,6 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     description:
       'MKT Twitter Software facilitates automatic Twitter profile updates, posting, bulk account interaction, earning, and automated data scanning of any account of any target audience',
     price: 10,
-    image: twiterTool,
+    image: twitterTool,
   },
 ];
