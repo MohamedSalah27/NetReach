@@ -13,12 +13,15 @@ import { useToast } from '../hooks/useToast';
 import USDT from '../assets/USDT.avif';
 import USDC from '../assets/USDC.avif';
 import Bitcoin from '../assets/Bitcoin.avif';
+import type { StoreProduct } from '../lib/types';
 
 export const CheckoutPage: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { showToast } = useToast();
-  const product = location.state?.product;
+
+  const state = location.state as { product: StoreProduct } | null;
+  const product = state?.product;
 
   const [quantity, setQuantity] = useState(1);
   const [email, setEmail] = useState('');
