@@ -63,24 +63,27 @@ export const CheckoutPage: React.FC = () => {
     }
 
     try {
-      const response = await fetch('https://localhost:7114/api/NowPay/Create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          price: totalPrice,
-          payCurrency: 'usd',
-          email: email,
-          type: accountType,
-          quantity: quantity,
-        }),
-      });
+      const response = await fetch(
+        'https://notreach.runasp.net/api/NowPay/Create',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            price: totalPrice,
+            payCurrency: 'usd',
+            email: email,
+            type: accountType,
+            quantity: quantity,
+          }),
+        }
+      );
 
       if (!response.ok) throw new Error('Gateway Error');
 
       const data = await response.json();
       console.log(data);
 
-      if (data.invoice_url) {
+      if (data.url) {
         showToast(
           'Success! Redirecting to payment gateway...',
           'success',
