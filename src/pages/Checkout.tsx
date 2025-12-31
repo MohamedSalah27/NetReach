@@ -163,21 +163,31 @@ export const CheckoutPage: React.FC = () => {
                 <span className="text-sm font-bold text-slate-400 uppercase tracking-widest">
                   Quantity
                 </span>
-                <div className="flex items-center gap-6 bg-black rounded-2xl p-2 border border-white/5">
+                <div className="flex items-center gap-4 bg-black rounded-2xl p-2 border border-white/5">
                   <button
+                    type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="p-2 hover:bg-white/10 rounded-xl cursor-pointer"
+                    className="p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-colors"
                   >
-                    <Minus className="w-4 h-4" />
+                    <Minus className="w-4 h-4 text-slate-400 hover:text-white" />
                   </button>
-                  <span className="text-xl font-black w-8 text-center">
-                    {quantity}
-                  </span>
+
+                  <input
+                    type="number"
+                    value={quantity}
+                    onChange={(e) => {
+                      const val = parseInt(e.target.value);
+                      setQuantity(isNaN(val) || val < 1 ? 1 : val);
+                    }}
+                    className="text-xl font-black w-12 text-center bg-transparent border-none focus:outline-none focus:ring-0 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  />
+
                   <button
+                    type="button"
                     onClick={() => setQuantity(quantity + 1)}
-                    className="p-2 hover:bg-white/10 rounded-xl cursor-pointer"
+                    className="p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-colors"
                   >
-                    <Plus className="w-4 h-4" />
+                    <Plus className="w-4 h-4 text-slate-400 hover:text-white" />
                   </button>
                 </div>
               </div>

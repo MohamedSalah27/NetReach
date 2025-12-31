@@ -8,7 +8,14 @@ import { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-import { HomePage, StorePage, NotFoundPage, CheckoutPage } from './pages';
+import {
+  HomePage,
+  StorePage,
+  NotFoundPage,
+  CheckoutPage,
+  PaymentSuccess,
+  PaymentCancel,
+} from './pages';
 import { ToastProvider } from './utils/providers/ToastProvider';
 import { Navigation, Footer } from './components';
 
@@ -42,6 +49,8 @@ const App: React.FC = () => {
             <main>
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/payment-success" element={<PaymentSuccess />} />
+                <Route path="/payment-cancel" element={<PaymentCancel />} />
                 <Route path="/store">
                   <Route index element={<StorePage />} />
                   <Route path="checkout" element={<CheckoutPage />} />
