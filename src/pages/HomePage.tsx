@@ -4,6 +4,7 @@ import {
   HowItWorksSection,
   FAQSection,
   FooterCTA,
+  Contact,
 } from '../components';
 
 export const HomePage: React.FC = () => {
@@ -12,6 +13,7 @@ export const HomePage: React.FC = () => {
       <HeroSection />
       <FeaturesSection />
       <HowItWorksSection />
+      <Contact />
       <FAQSection />
       <FooterCTA />
     </>

@@ -1,59 +1,70 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const PerformanceCard = () => {
-  const [metrics] = useState(() => {
-    const baseReach = 1240000;
-    const baseEngage = 24.5;
-    const baseIntent = 6.2;
+  const [metrics, setMetrics] = useState(() => ({
+    reach: 1240000,
+    engagement: 24.5,
+    intent: 6.2,
+    sessionId: Math.floor(Math.random() * 1000)
+      .toString()
+      .padStart(3, '0'),
+  }));
 
-    return {
-      reach: (baseReach + Math.floor(Math.random() * 45000)).toLocaleString(),
-      engagement: (baseEngage + Math.random() * 3).toFixed(1),
-      intent: (baseIntent + Math.random() * 1.5).toFixed(2),
-      sessionId: Math.floor(Math.random() * 1000)
-        .toString()
-        .padStart(3, '0'),
-    };
-  });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMetrics((prev) => ({
+        ...prev,
+        reach: prev.reach + (Math.floor(Math.random() * 200) - 50),
+        engagement: parseFloat(
+          (prev.engagement + (Math.random() * 0.4 - 0.2)).toFixed(1)
+        ),
+        intent: parseFloat(
+          (prev.intent + (Math.random() * 0.2 - 0.1)).toFixed(2)
+        ),
+      }));
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="bg-[#0c0c12] border border-white/10 p-10 rounded-[2.5rem] shadow-2xl relative w-full max-w-md backdrop-blur-xl">
-      <div className="flex justify-between items-center mb-10">
+    <div className="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] flex flex-col backdrop-blur-sm w-full max-w-md relative overflow-hidden">
+      <div className="w-full flex justify-between items-center mb-10">
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-purple-500 animate-pulse shadow-[0_0_10px_purple]" />
           <span className="text-[10px] uppercase tracking-[0.3em] text-purple-400 font-black">
             System Live
           </span>
         </div>
-        <span className="text-[10px] font-mono text-slate-600">
+        <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
           NODE_ID: {metrics.sessionId}
         </span>
       </div>
 
-      <div className="space-y-10">
+      <div className="space-y-10 w-full text-left">
         <div>
           <p className="text-slate-500 text-[10px] uppercase tracking-widest mb-2 font-bold">
             Aggregated Network Reach
           </p>
-          <div className="text-6xl font-mono font-bold tracking-tighter text-white">
-            {metrics.reach}
+          <div className="text-6xl font-mono font-black tracking-tighter text-white tabular-nums">
+            {metrics.reach.toLocaleString()}
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 border-t border-white/5 pt-8">
+        <div className="grid grid-cols-2 gap-8 border-t border-white/10 pt-8 w-full">
           <div>
-            <p className="text-slate-600 text-[10px] uppercase tracking-widest mb-1">
+            <p className="text-slate-500 text-[10px] uppercase tracking-widest mb-2 font-bold">
               Engagement
             </p>
-            <div className="text-3xl font-mono font-bold text-purple-400">
+            <div className="text-3xl font-mono font-black text-purple-500 tabular-nums">
               {metrics.engagement}%
             </div>
           </div>
           <div>
-            <p className="text-slate-600 text-[10px] uppercase tracking-widest mb-1">
+            <p className="text-slate-500 text-[10px] uppercase tracking-widest mb-2 font-bold">
               Conv. Velocity
             </p>
-            <div className="text-3xl font-mono font-bold text-white">
+            <div className="text-3xl font-mono font-black text-white tabular-nums">
               {metrics.intent}%
             </div>
           </div>

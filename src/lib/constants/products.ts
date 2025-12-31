@@ -34,8 +34,8 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'Mobile ISP Proxy (USA / EU)',
     description: `Real 4G/5G mobile IPs with ultra-low ban rates. 
     Ideal for X, Instagram, and high-risk automation at scale.`,
-    price: 10,
-    image: '/images/instagram.avif',
+    price: 5,
+    image: '/images/proxy.avif',
   },
   {
     id: 'px-02',
@@ -43,8 +43,8 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'Residential ISP Proxy (USA / EU)',
     description: `Real residential IPs from trusted ISPs. 
     Stable, low-detection proxies for automation, scraping, and account management.`,
-    price: 10,
-    image: '/images/instagram.avif',
+    price: 5,
+    image: '/images/proxy.avif',
   },
 
   // TOOLS
@@ -54,7 +54,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'MKT Instagram Software​',
     description:
       'MKT Instagram Software supports automatic posting of sales posts, Instagram reels, automatic searching and following based on potential Username lists, facilitates easy order closing.',
-    price: 10,
+    price: 200,
     image: '/images/instagramTool.avif',
   },
   {
@@ -63,7 +63,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'MKT Twitter Software',
     description:
       'MKT Twitter Software facilitates automatic Twitter profile updates, posting, bulk account interaction, earning, and automated data scanning of any account of any target audience',
-    price: 10,
+    price: 200,
     image: '/images/twitterTool.avif',
   },
 ];

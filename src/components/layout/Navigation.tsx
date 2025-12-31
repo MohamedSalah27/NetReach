@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, ShoppingBag } from 'lucide-react';
+import { Menu, X, ShoppingBag } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 
 export const Navigation: React.FC = () => {
@@ -42,21 +42,16 @@ export const Navigation: React.FC = () => {
           <a href="/#faq" className="hover:text-white transition-colors">
             Operational FAQ
           </a>
-
-          <button
-            onClick={() => navigate('/store')}
-            className="flex items-center gap-2 px-5 py-2 bg-purple-500/10 border border-purple-500/20 text-purple-400 rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300 cursor-pointer font-bold text-[10px] uppercase tracking-wider active:scale-95"
-          >
-            <ShoppingBag className="w-3.5 h-3.5" />
-            Asset Store
-          </button>
+          <a href="/#contact" className="hover:text-white transition-colors">
+            Contact Us
+          </a>
         </div>
         <button
-          className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-white text-black rounded-full hover:bg-purple-400 transition-all duration-300 cursor-pointer font-bold text-xs uppercase tracking-wider active:scale-95 shadow-lg shadow-white/5"
-          onClick={() => window.open('https://t.me/netreach_team', '_blank')}
+          onClick={() => navigate('/store')}
+          className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-purple-500/10 border border-purple-500/20 text-purple-400 rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300 cursor-pointer font-bold uppercase tracking-wider active:scale-95 shadow-lg shadow-white/5 text-xs"
         >
-          Deploy Now
-          <ArrowUpRight className="w-3.5 h-3.5" />
+          <ShoppingBag className="w-3.5 h-3.5" />
+          Asset Store
         </button>
 
         <button
@@ -92,15 +87,6 @@ export const Navigation: React.FC = () => {
             >
               Home
             </Link>
-            <button
-              onClick={() => {
-                navigate('/store');
-                setMobileMenuOpen(false);
-              }}
-              className="text-left text-4xl font-black text-purple-500 tracking-tighter"
-            >
-              Store
-            </button>
             <a
               href="#features"
               onClick={() => setMobileMenuOpen(false)}
@@ -108,13 +94,37 @@ export const Navigation: React.FC = () => {
             >
               Features
             </a>
+            <a
+              href="/#how-it-works"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-4xl font-black text-white tracking-tighter"
+            >
+              Infrastructure
+            </a>
+            <a
+              href="/#faq"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-4xl font-black text-white tracking-tighter"
+            >
+              Operational FAQ
+            </a>
+            <a
+              href="/#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-4xl font-black text-white tracking-tighter"
+            >
+              Contact Us
+            </a>
           </div>
 
           <button
+            onClick={() => {
+              navigate('/store');
+              setMobileMenuOpen(false);
+            }}
             className="w-full py-5 bg-white text-black rounded-2xl text-lg font-bold"
-            onClick={() => window.open('https://t.me/netreach_team', '_blank')}
           >
-            Contact on Telegram
+            Store
           </button>
         </div>
       </div>

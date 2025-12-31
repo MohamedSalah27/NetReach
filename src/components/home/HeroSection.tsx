@@ -1,24 +1,6 @@
-import React, { useState } from 'react';
-import { Copy, CheckCircle2 } from 'lucide-react';
-import { useToast } from '../../hooks';
-import { copyToClipboard } from '../../utils';
 import { PerformanceCard } from './PerformanceCard';
 
 export const HeroSection: React.FC = () => {
-  const [copied, setCopied] = useState(false);
-  const { showToast } = useToast();
-
-  const handleCopy = async () => {
-    const success = await copyToClipboard('@reachops_team');
-    if (success) {
-      setCopied(true);
-      showToast('Username copied to clipboard!', 'success');
-      setTimeout(() => setCopied(false), 2000);
-    } else {
-      showToast('Failed to copy to clipboard', 'error');
-    }
-  };
-
   return (
     <section className="relative min-h-screen flex items-center bg-[#050508] py-24 overflow-hidden">
       <div className="absolute top-0 right-0 w-125 h-125 bg-purple-600/10 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
@@ -36,24 +18,15 @@ export const HeroSection: React.FC = () => {
               building compliant social funnels that convert. No dashboards. No
               friction. Just results.
             </p>
-            <div className="flex flex-wrap gap-5 pt-4">
-              <a
-                href="https://t.me/netreach_team"
-                className="px-10 py-5 bg-white text-black font-bold text-lg rounded-full transition-all hover:scale-105 active:scale-95 shadow-xl shadow-white/5"
-              >
-                Start Deployment
-              </a>
-              <button
-                onClick={handleCopy}
-                className="px-10 py-5 border border-white/10 hover:border-purple-500/50 text-white font-bold text-lg rounded-full flex items-center gap-3 transition-all bg-white/5 backdrop-blur-sm"
-              >
-                {copied ? (
-                  <CheckCircle2 className="w-5 h-5 text-green-400" />
-                ) : (
-                  <Copy className="w-5 h-5 text-purple-400" />
-                )}
-                {copied ? 'Copied ID' : 'Copy Telegram ID'}
-              </button>
+            <div className="flex flex-wrap gap-x-8 gap-y-2 text-[12px] uppercase tracking-[0.2em] font-bold text-slate-500">
+              <span className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-purple-500" />
+                Not Affiliated with X or Meta
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-purple-500" />
+                Privacy-First Architecture
+              </span>
             </div>
           </div>
 

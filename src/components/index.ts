@@ -3,6 +3,7 @@ export { Footer } from './layout/Footer';
 
 export { HeroSection } from './home/HeroSection';
 export { PerformanceCard } from './home/PerformanceCard';
+export { Contact } from './home/Contact';
 export { FeatureCard } from './home/FeatureCard';
 export { FeaturesSection } from './home/FeaturesSection';
 export { ProcessStep } from './home/ProcessStep';
