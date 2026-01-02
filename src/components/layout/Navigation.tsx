@@ -18,10 +18,21 @@ export const Navigation: React.FC = () => {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] font-bold text-slate-400">
-          <a href="/#features" className="hover:text-white transition-colors">Features</a>
-          <a href="/#how-it-works" className="hover:text-white transition-colors">Infrastructure</a>
-          <a href="/#faq" className="hover:text-white transition-colors">Operational FAQ</a>
-          <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
+          <a href="/#features" className="hover:text-white transition-colors">
+            Features
+          </a>
+          <a
+            href="/#how-it-works"
+            className="hover:text-white transition-colors"
+          >
+            Infrastructure
+          </a>
+          <a href="/#faq" className="hover:text-white transition-colors">
+            FAQ
+          </a>
+          <a href="/#contact" className="hover:text-white transition-colors">
+            Contact Us
+          </a>
         </div>
 
         {/* Desktop Store button */}
@@ -52,28 +63,22 @@ export const Navigation: React.FC = () => {
       </nav>
 
       {/* --- MOBILE MENU OVERLAY --- */}
-      {/* Container is fixed over the whole screen, z-index higher than header */}
-      <div 
-        className={`fixed inset-0 z-[100] flex w-full h-screen transition-all duration-300 ${
-            mobileMenuOpen ? 'visible' : 'invisible delay-300'
+      <div
+        className={`fixed inset-0 z-100 flex w-full h-screen transition-all duration-300 ${
+          mobileMenuOpen ? 'visible' : 'invisible delay-300'
         }`}
       >
-        
-        {/* LEFT SIDE: 40% Width - The Blurred "Click to Close" Area */}
-        <div 
+        <div
           onClick={() => setMobileMenuOpen(false)}
           className={`w-[40%] h-full  bg-black/20 transition-opacity duration-300 ${
             mobileMenuOpen ? 'opacity-100' : 'opacity-0'
           }`}
         />
-
-        {/* RIGHT SIDE: 60% Width - The Solid Menu Drawer */}
-        <div 
+        <div
           className={`w-[60%] h-full bg-[#050508] border-l border-white/10 shadow-2xl flex flex-col p-6 transform transition-transform duration-300 ease-out ${
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          {/* Header inside the drawer */}
           <div className="flex items-center justify-end mb-8">
             <button
               onClick={() => setMobileMenuOpen(false)}
@@ -88,54 +93,54 @@ export const Navigation: React.FC = () => {
               Menu
             </p>
 
-            <Link 
-                to="/" 
-                onClick={() => setMobileMenuOpen(false)} 
-                className="text-lg font-bold text-white py-3 px-2 border-b border-white/5 hover:bg-white/5 rounded-lg transition-colors"
+            <Link
+              to="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-white py-3 px-2 border-b border-white/5 hover:bg-white/5 rounded-lg transition-colors"
             >
-                Home
+              Home
             </Link>
-            <a 
-                href="/#features" 
-                onClick={() => setMobileMenuOpen(false)} 
-                className="text-lg font-bold text-slate-300 py-3 px-2 border-b border-white/5 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+            <a
+              href="/#features"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-slate-300 py-3 px-2 border-b border-white/5 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
             >
-                Features
+              Features
             </a>
-            <a 
-                href="/#how-it-works" 
-                onClick={() => setMobileMenuOpen(false)} 
-                className="text-lg font-bold text-slate-300 py-3 px-2 border-b border-white/5 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+            <a
+              href="/#how-it-works"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-slate-300 py-3 px-2 border-b border-white/5 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
             >
-                Infrastructure
+              Infrastructure
             </a>
-            <a 
-                href="/#faq" 
-                onClick={() => setMobileMenuOpen(false)} 
-                className="text-lg font-bold text-slate-300 py-3 px-2 border-b border-white/5 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+            <a
+              href="/#faq"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-slate-300 py-3 px-2 border-b border-white/5 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
             >
-                Operational FAQ
+              FAQ
             </a>
-            <a 
-                href="/#contact" 
-                onClick={() => setMobileMenuOpen(false)} 
-                className="text-lg font-bold text-slate-300 py-3 px-2 border-b border-white/5 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+            <a
+              href="/#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-bold text-slate-300 py-3 px-2 border-b border-white/5 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
             >
-                Contact Us
+              Contact Us
             </a>
           </div>
 
           <div className="mt-auto pt-8">
-             <button
-               onClick={() => {
-                   navigate('/store');
-                   setMobileMenuOpen(false);
-               }}
-               className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg font-bold uppercase text-xs tracking-wider"
-             >
-               <ShoppingBag className="w-4 h-4" />
-               Store
-             </button>
+            <button
+              onClick={() => {
+                navigate('/store');
+                setMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg font-bold uppercase text-xs tracking-wider"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              Store
+            </button>
           </div>
         </div>
       </div>

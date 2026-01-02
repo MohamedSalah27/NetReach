@@ -28,7 +28,7 @@ export const PerformanceCard = () => {
   }, []);
 
   return (
-    <div className="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] flex flex-col backdrop-blur-sm w-full max-w-md relative overflow-hidden">
+    <div className="bg-white/5 border border-white/10 p-6 sm:p-10 rounded-4xl sm:rounded-[2.5rem] flex flex-col backdrop-blur-sm w-[calc(100%-2rem)] mx-auto sm:w-full sm:max-w-md relative overflow-hidden">
       <div className="w-full flex justify-between items-center mb-10">
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-purple-500 animate-pulse shadow-[0_0_10px_purple]" />
@@ -46,7 +46,7 @@ export const PerformanceCard = () => {
           <p className="text-slate-500 text-[10px] uppercase tracking-widest mb-2 font-bold">
             Aggregated Network Reach
           </p>
-          <div className="text-6xl font-mono font-black tracking-tighter text-white tabular-nums">
+          <div className="sm:text-6xl text-5xl font-mono font-black tracking-tighter text-white tabular-nums">
             {metrics.reach.toLocaleString()}
           </div>
         </div>

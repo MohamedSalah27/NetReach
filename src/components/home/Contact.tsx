@@ -15,7 +15,8 @@ export const Contact: React.FC = () => {
       className="py-24 px-6 bg-[#050508] relative overflow-hidden"
       id="contact"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="absolute top-0 right-1/2 translate-x-1/2 w-200 h-100 bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl lg:text-5xl font-black text-white mb-6 tracking-tighter">
@@ -58,8 +59,7 @@ export const Contact: React.FC = () => {
               </a>
             </div>
           </div>
-
-          <div className="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] flex flex-col backdrop-blur-sm w-full max-w-md relative overflow-hidden">
+          <div className="bg-white/5 border border-white/10 p-6 sm:p-10 rounded-[2.5rem] flex flex-col backdrop-blur-sm w-[calc(100%-1rem)] mx-auto sm:w-full max-w-md relative overflow-hidden">
             <div className="w-full flex justify-between items-center mb-10">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-purple-500 animate-pulse shadow-[0_0_10px_purple]" />
@@ -95,7 +95,6 @@ export const Contact: React.FC = () => {
                 >
                   <Send className="w-4 h-4" /> Start Deployment
                 </a>
-
                 <button
                   onClick={handleCopy}
                   className="cursor-pointer w-full py-4 border border-white/10 hover:border-purple-500/50 text-white font-bold rounded-2xl flex items-center justify-center gap-3 transition-all bg-white/5 text-sm"
@@ -112,8 +111,6 @@ export const Contact: React.FC = () => {
                 </button>
               </div>
             </div>
-
-            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 blur-3xl rounded-full -mr-16 -mt-16 pointer-events-none" />
           </div>
         </div>
       </div>
