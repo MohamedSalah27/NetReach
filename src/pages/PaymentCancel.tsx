@@ -5,7 +5,7 @@ export const PaymentCancel: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#050508] flex items-center justify-center px-6 relative overflow-hidden">
+    <div className="min-h-screen bg-[#050508] flex items-start sm:items-center justify-center px-6 pt-24 sm:pt-0 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-red-500/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-md w-full text-center relative z-10">
