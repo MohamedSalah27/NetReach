@@ -15,6 +15,7 @@ import {
   CheckoutPage,
   PaymentSuccess,
   PaymentCancel,
+  PaymentResult,
 } from './pages';
 import { ToastProvider } from './utils/providers/ToastProvider';
 import { Navigation, Footer } from './components';
@@ -49,6 +50,7 @@ const App: React.FC = () => {
             <main>
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/payment-result" element={<PaymentResult />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
                 <Route path="/payment-cancel" element={<PaymentCancel />} />
                 <Route path="/store">
