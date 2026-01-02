@@ -26,7 +26,7 @@ export const Toast: React.FC<ToastComponentProps> = ({
 
   return (
     <div
-      className="flex items-center gap-3 p-4 rounded-lg shadow-lg border min-w-[300px] animate-slide-in"
+      className="flex items-center gap-3 p-4 rounded-lg shadow-lg border min-w-75 animate-slide-in"
       style={{
         backgroundColor: colors[type].bg,
         borderColor: colors[type].border,
