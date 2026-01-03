@@ -149,7 +149,7 @@ export const Navigation: React.FC = () => {
         {/* Background Overlay - BLUR REMOVED */}
         <div
           onClick={() => setMobileMenuOpen(false)}
-          className="w-[30%] h-full bg-black/60"
+          className="w-[30%] h-full"
         />
 
         {/* Drawer */}
