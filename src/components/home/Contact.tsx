@@ -30,7 +30,7 @@ export const Contact: React.FC = () => {
             <div className="space-y-6">
               <a
                 href="mailto:info@netreach.site"
-                className="flex items-center gap-4 group"
+                className="flex items-center gap-4 group w-fit"
               >
                 <div className="p-4 bg-white/5 rounded-2xl border border-white/10 group-hover:border-purple-500/50 transition-colors">
                   <Mail className="w-6 h-6 text-purple-400" />
@@ -45,7 +45,7 @@ export const Contact: React.FC = () => {
 
               <a
                 href="tel:+13464875525"
-                className="flex items-center gap-4 group"
+                className="flex items-center gap-4 group w-fit"
               >
                 <div className="p-4 bg-white/5 rounded-2xl border border-white/10 group-hover:border-purple-500/50 transition-colors">
                   <Phone className="w-6 h-6 text-purple-400" />
