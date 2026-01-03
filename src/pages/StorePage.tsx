@@ -207,7 +207,7 @@ export const StorePage: React.FC = () => {
   return (
     <div className="pt-32 pb-20 bg-[#050508] min-h-screen relative overflow-hidden">
       <div className="absolute top-0 right-0 w-125 h-125 bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 relative z-10 text-left">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 text-left pt-12">
         <header className="mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[10px] uppercase tracking-[0.2em] font-bold mb-6">
             <Layers className="w-3 h-3" />
