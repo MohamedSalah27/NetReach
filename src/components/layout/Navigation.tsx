@@ -7,7 +7,6 @@ export const Navigation: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Handle incoming hash links from other pages (like the Store)
   useEffect(() => {
     if (location.hash && location.pathname === '/') {
       const id = location.hash.replace('#', '');
@@ -30,13 +29,11 @@ export const Navigation: React.FC = () => {
     e.preventDefault();
     setMobileMenuOpen(false);
 
-    // If not on Home page, navigate to Home with hash
     if (location.pathname !== '/') {
       navigate(id === 'home' ? '/' : `/#${id}`);
       return;
     }
 
-    // If on Home page, smooth scroll
     if (id === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       window.history.pushState({}, '', '/');
@@ -92,7 +89,6 @@ export const Navigation: React.FC = () => {
             NET<span className="text-purple-500">REACH</span>
           </Link>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] font-bold text-slate-400">
             {['Features', 'Infrastructure', 'FAQ', 'Contact Us'].map((item) => (
               <button
@@ -150,9 +146,10 @@ export const Navigation: React.FC = () => {
             : 'invisible opacity-0 pointer-events-none'
         }`}
       >
+        {/* Background Overlay - BLUR REMOVED */}
         <div
           onClick={() => setMobileMenuOpen(false)}
-          className="w-[30%] h-full bg-black/60 backdrop-blur-sm"
+          className="w-[30%] h-full bg-black/60"
         />
 
         {/* Drawer */}
