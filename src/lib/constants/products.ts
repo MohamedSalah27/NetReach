@@ -51,18 +51,18 @@ export const STORE_PRODUCTS: StoreProduct[] = [
   {
     id: 'tl-01',
     category: 'tools',
-    name: 'MKT Instagram Software​',
+    name: 'Instagram Automation Software',
     description:
-      'MKT Instagram Software supports automatic posting of sales posts, Instagram reels, automatic searching and following based on potential Username lists, facilitates easy order closing.',
+      'Instagram Automation Software supports automatic posting of sales posts, Instagram reels, automatic searching and following based on potential Username lists, facilitates easy order closing.',
     price: 200,
     image: '/images/instagramTool.avif',
   },
   {
     id: 'tl-02',
     category: 'tools',
-    name: 'MKT Twitter Software',
+    name: 'X Automation Software',
     description:
-      'MKT Twitter Software facilitates automatic Twitter profile updates, posting, bulk account interaction, earning, and automated data scanning of any account of any target audience',
+      'X Automation Software facilitates automatic X profile updates, posting, bulk account interaction, earning, and automated data scanning of any account of any target audience',
     price: 200,
     image: '/images/twitterTool.avif',
   },
