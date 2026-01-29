@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
             className="flex items-center gap-1.5 text-slate-500 hover:text-purple-400 transition-colors text-[10px] uppercase tracking-widest font-bold group"
           >
             <FileText className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-            <span className="border-b border-transparent hover:border-purple-400">Terms of Service</span>
+            <span className="border-b border-transparent hover:border-purple-400">Terms & Conditions</span>
           </Link>
 
           <span className="h-1 w-1 rounded-full bg-slate-700" />
