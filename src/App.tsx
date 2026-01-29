@@ -16,6 +16,8 @@ import {
   PaymentSuccess,
   PaymentCancel,
   PaymentResult,
+  TermsOfService,
+  PrivacyPolicy,
 } from './pages';
 import { ToastProvider } from './utils/providers/ToastProvider';
 import { Navigation, Footer } from './components';
@@ -53,6 +55,8 @@ const App: React.FC = () => {
                 <Route path="/payment-result" element={<PaymentResult />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
                 <Route path="/payment-cancel" element={<PaymentCancel />} />
+                <Route path="/terms" element={<TermsOfService />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/store">
                   <Route index element={<StorePage />} />
                   <Route path="checkout" element={<CheckoutPage />} />

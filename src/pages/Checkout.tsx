@@ -25,6 +25,7 @@ export const CheckoutPage: React.FC = () => {
 
   const [quantity, setQuantity] = useState(1);
   const [email, setEmail] = useState('');
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
   // Production-grade Email Regex
@@ -38,9 +39,10 @@ export const CheckoutPage: React.FC = () => {
 
   const isEmailValid = validateEmail(email);
   const totalPrice = product ? product.price * quantity : 0;
+  const canProceed = isEmailValid && agreedToTerms && !isProcessing;
 
   const handleInitializePayment = useCallback(async () => {
-    if (!product || !isEmailValid || isProcessing) return;
+    if (!product || !canProceed) return;
 
     setIsProcessing(true);
     showToast('Initializing secure connection...', 'info', 3000);
@@ -109,9 +111,8 @@ export const CheckoutPage: React.FC = () => {
     product,
     totalPrice,
     email,
-    isEmailValid,
     quantity,
-    isProcessing,
+    canProceed,
     showToast,
   ]);
 
@@ -194,7 +195,7 @@ export const CheckoutPage: React.FC = () => {
             </div>
 
             {/* Email Field */}
-            <div className="mb-8">
+            <div className="mb-6">
               <label className="block text-[10px] text-slate-500 uppercase font-black tracking-[0.2em] mb-4">
                 Delivery Destination
               </label>
@@ -218,6 +219,51 @@ export const CheckoutPage: React.FC = () => {
                   }`}
                 />
               </div>
+            </div>
+
+            {/* Terms Checkbox */}
+            <div className="mb-8 p-4 rounded-2xl bg-white/5 border border-white/10">
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <div className="relative flex items-center justify-center mt-0.5">
+                  <input
+                    type="checkbox"
+                    checked={agreedToTerms}
+                    onChange={(e) => setAgreedToTerms(e.target.checked)}
+                    className="appearance-none w-5 h-5 border-2 border-white/20 rounded bg-transparent checked:bg-purple-500 checked:border-purple-500 cursor-pointer transition-all"
+                  />
+                  {agreedToTerms && (
+                    <svg
+                      className="absolute w-3 h-3 text-white pointer-events-none"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  )}
+                </div>
+                <span className="text-sm text-slate-300 leading-relaxed">
+                  I agree to the{' '}
+                  <button
+                    onClick={() => navigate('/terms')}
+                    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
+                  >
+                    Terms of Service
+                  </button>{' '}
+                  and{' '}
+                  <button
+                    onClick={() => navigate('/privacy')}
+                    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
+                  >
+                    Privacy Policy
+                  </button>
+                </span>
+              </label>
             </div>
 
             {/* Total & Action */}
@@ -257,9 +303,9 @@ export const CheckoutPage: React.FC = () => {
 
               <button
                 onClick={handleInitializePayment}
-                disabled={!isEmailValid || isProcessing}
+                disabled={!canProceed}
                 className={`w-full py-6 rounded-4xl font-black text-xl transition-all active:scale-[0.98] cursor-pointer shadow-2xl ${
-                  isEmailValid && !isProcessing
+                  canProceed
                     ? 'bg-white text-black hover:bg-purple-400 shadow-purple-500/20'
                     : 'bg-white/10 text-slate-500 cursor-not-allowed border border-white/5'
                 }`}
@@ -269,10 +315,12 @@ export const CheckoutPage: React.FC = () => {
                     <Loader2 className="w-5 h-5 animate-spin" />
                     Processing...
                   </span>
-                ) : isEmailValid ? (
+                ) : canProceed ? (
                   'Initialize Payment'
-                ) : (
+                ) : !isEmailValid ? (
                   'Enter Valid Email'
+                ) : (
+                  'Accept Terms to Continue'
                 )}
               </button>
             </div>
