@@ -23,7 +23,7 @@ export const RefundPolicy: React.FC = () => {
 
         <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
           <p className="text-slate-300 leading-relaxed">
-            Due to the digital nature of our products, most sales are final.
+                          <strong className="text-white">Due to the digital nature of our products, most sales are final. However, we understand that there may be exceptional circumstances where a refund is warranted.</strong> 
           </p>
         </div>
 
@@ -38,9 +38,10 @@ export const RefundPolicy: React.FC = () => {
 
         <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
           <h2 className="text-2xl font-bold mb-4">Contact for Refunds</h2>
-          <p>info@netreach.site</p>
+          <p className="text-slate-300">
+ Visit our <a href="/#contact" className="text-purple-400 underline">Contact Page</a>.
+          </p>
         </div>
-
       </div>
     </div>
   );

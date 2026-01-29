@@ -68,9 +68,14 @@ export const TermsOfService: React.FC = () => {
           <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
             <h2 className="text-2xl font-bold mb-4 text-white">6. Contact</h2>
             <p className="text-slate-300 leading-relaxed">
-              info@netreach.site
+              Visit our <a href="/#contact" className="text-purple-400 underline">Contact Page</a>.
             </p>
           </div>
+<div className="mt-12 p-6 rounded-3xl bg-purple-500/10 border border-purple-500/30 text-center">
+          <p className="text-sm text-slate-400">
+            By using NetReach services, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.
+          </p>
+        </div>
 
         </div>
       </div>
