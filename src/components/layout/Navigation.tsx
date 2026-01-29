@@ -109,20 +109,24 @@ export const Navigation: React.FC = () => {
             Store
           </button>
 
-          <div className="flex md:hidden items-center gap-3">
-            <button
-              onClick={() => navigate('/store')}
-              className="cursor-pointer flex items-center justify-center p-2 bg-purple-500/20 text-purple-400 rounded-full"
-            >
-              <ShoppingBag className="w-5 h-5" />
-            </button>
-            <button
-              className="text-white cursor-pointer p-2 active:scale-90 transition-transform"
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
+       <div className="flex md:hidden items-center gap-3">
+  {/* زرار الستور الجديد في الموبايل */}
+  <button
+    onClick={() => navigate('/store')}
+    className="cursor-pointer flex items-center gap-2 px-4 py-2 bg-purple-500/20 border border-purple-500/30 text-purple-400 rounded-full active:scale-95 transition-all shadow-lg shadow-purple-500/10"
+  >
+    <span className="text-[10px] font-black uppercase tracking-wider">Store</span>
+    <ShoppingBag className="w-4 h-4" />
+  </button>
+
+  {/* زرار المنيو (الثلاث شرط) */}
+  <button
+    className="text-white cursor-pointer p-2 active:scale-90 transition-transform"
+    onClick={() => setMobileMenuOpen(true)}
+  >
+    <Menu className="w-6 h-6" />
+  </button>
+</div>
         </nav>
       </div>
 
