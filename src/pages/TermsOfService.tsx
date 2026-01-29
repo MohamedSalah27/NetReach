@@ -21,7 +21,7 @@ export const TermsOfService: React.FC = () => {
             Legal Documentation
           </div>
           <h1 className="text-5xl lg:text-6xl font-black tracking-tighter mb-4">
-            Terms of Service
+            Terms & Conditions
           </h1>
           <p className="text-slate-400">
             Last Updated: January 2, 2026
