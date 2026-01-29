@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
             className="flex items-center gap-1.5 text-slate-500 hover:text-purple-400 transition-colors text-[10px] uppercase tracking-widest font-bold group"
           >
             <FileText className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-            Terms
+            Terms & Conditions
           </Link>
 
           <span className="h-1 w-1 rounded-full bg-slate-700" />
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
             className="flex items-center gap-1.5 text-slate-500 hover:text-purple-400 transition-colors text-[10px] uppercase tracking-widest font-bold group"
           >
             <Shield className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-            Privacy
+            Privacy Policy
           </Link>
 
           <span className="h-1 w-1 rounded-full bg-slate-700" />
@@ -45,7 +45,8 @@ export const Footer: React.FC = () => {
             className="flex items-center gap-1.5 text-slate-500 hover:text-purple-400 transition-colors text-[10px] uppercase tracking-widest font-bold group"
           >
             <RefreshCw className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-            Refund
+                        Refund Policy
+
           </Link>
 
           <span className="h-1 w-1 rounded-full bg-slate-700" />
@@ -59,7 +60,12 @@ export const Footer: React.FC = () => {
         <div className="max-w-4xl mx-auto border-t border-white/5 pt-8">
           <p className="text-[10px] text-slate-700 text-center leading-relaxed font-medium">
             <span className="text-slate-500 mr-1">Compliance Protocol:</span>
-            All outreach activities are executed through a decentralized node network within platform safety parameters.
+            All outreach activities are executed through a decentralized node
+            network within platform safety parameters. We do not utilize
+            automated credential harvesting, API bypasses, or prohibited evasion
+            assets. Our methodology prioritizes human-first communication
+            patterns to maximize account longevity and maintain the highest
+            standards of ethical engagement.
           </p>
         </div>
       </div>

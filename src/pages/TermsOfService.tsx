@@ -29,6 +29,16 @@ export const TermsOfService: React.FC = () => {
         </div>
 
         <div className="prose prose-invert prose-slate max-w-none">
+          {/* Company Information - Required by Paddle */}
+          <div className="p-6 rounded-3xl bg-purple-500/10 border border-purple-500/30 mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-white">Company Information</h2>
+            <p className="text-slate-300 leading-relaxed">
+              <strong className="text-white">Business Name:</strong> NetReach<br />
+              <strong className="text-white">Operating as:</strong> NetReach Digital Services<br />
+              <strong className="text-white">Website:</strong> https://netreach.site<br />
+              <strong className="text-white">Contact:</strong> Available via our <a href="/#contact" className="text-purple-400 underline">Contact Page</a>
+            </p>
+          </div>
 
           <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
             <h2 className="text-2xl font-bold mb-4 text-white">1. Acceptance of Terms</h2>
@@ -40,43 +50,60 @@ export const TermsOfService: React.FC = () => {
           <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
             <h2 className="text-2xl font-bold mb-4 text-white">2. Services Description</h2>
             <p className="text-slate-300 leading-relaxed">
-              NetReach provides digital products and automation-related software tools delivered electronically via email or secure download.
+              NetReach provides digital products including social media accounts, proxies, and automation-related software tools delivered electronically via email or secure download.
             </p>
           </div>
 
           <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">3. Refunds</h2>
+            <h2 className="text-2xl font-bold mb-4 text-white">3. Refund Policy</h2>
             <p className="text-slate-300 leading-relaxed">
-              Refund conditions are described in our dedicated Refund Policy page.
+              For detailed information about our refund policy, please visit our dedicated <a href="/refund" className="text-purple-400 underline">Refund Policy page</a>.
             </p>
           </div>
 
           <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
             <h2 className="text-2xl font-bold mb-4 text-white">4. Product Delivery</h2>
+            <p className="text-slate-300 leading-relaxed mb-3">
+              Products are delivered digitally within 1-30 minutes after successful payment confirmation to the email address provided during checkout.
+            </p>
             <p className="text-slate-300 leading-relaxed">
-              Products are delivered digitally within minutes after successful payment confirmation.
+              It is your responsibility to provide a valid email address. We are not responsible for delivery failures due to incorrect email addresses or spam filters.
             </p>
           </div>
 
           <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
             <h2 className="text-2xl font-bold mb-4 text-white">5. Payment Processing</h2>
             <p className="text-slate-300 leading-relaxed">
-              Payments are securely processed through licensed third-party gateways.
+              Payments are securely processed through licensed third-party payment gateways. We accept Credit/Debit Cards, PayPal, and various cryptocurrencies (Bitcoin, USDT, USDC).
+            </p>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-white">6. User Responsibilities</h2>
+            <p className="text-slate-300 leading-relaxed">
+              You agree to use purchased products in compliance with applicable laws and the terms of service of third-party platforms. NetReach is not responsible for account suspensions or restrictions imposed by third parties.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-white">7. Limitation of Liability</h2>
+            <p className="text-slate-300 leading-relaxed">
+              NetReach shall not be liable for any indirect, incidental, or consequential damages. Our total liability shall not exceed the amount you paid for the product in question.
             </p>
           </div>
 
           <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-            <h2 className="text-2xl font-bold mb-4 text-white">6. Contact</h2>
+            <h2 className="text-2xl font-bold mb-4 text-white">8. Contact Information</h2>
             <p className="text-slate-300 leading-relaxed">
-              Visit our <a href="/#contact" className="text-purple-400 underline">Contact Page</a>.
+              For questions or support, visit our <a href="/#contact" className="text-purple-400 underline">Contact Page</a>.
             </p>
           </div>
-<div className="mt-12 p-6 rounded-3xl bg-purple-500/10 border border-purple-500/30 text-center">
+        </div>
+
+        <div className="mt-12 p-6 rounded-3xl bg-purple-500/10 border border-purple-500/30 text-center">
           <p className="text-sm text-slate-400">
             By using NetReach services, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.
           </p>
-        </div>
-
         </div>
       </div>
     </div>
