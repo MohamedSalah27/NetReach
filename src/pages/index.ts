@@ -7,3 +7,4 @@ export * from './PaymentSuccess';
 export * from './PaymentCancel';
 export * from './TermsOfService';
 export * from './PrivacyPolicy';
+export * from './RefundPolicy'; // الجديد

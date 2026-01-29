@@ -18,15 +18,19 @@ import {
   PaymentResult,
   TermsOfService,
   PrivacyPolicy,
+  RefundPolicy,
 } from './pages';
+
 import { ToastProvider } from './utils/providers/ToastProvider';
 import { Navigation, Footer } from './components';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
   return null;
 };
 
@@ -52,15 +56,20 @@ const App: React.FC = () => {
             <main>
               <Routes>
                 <Route path="/" element={<HomePage />} />
+
                 <Route path="/payment-result" element={<PaymentResult />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
                 <Route path="/payment-cancel" element={<PaymentCancel />} />
+
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/refund" element={<RefundPolicy />} />
+
                 <Route path="/store">
                   <Route index element={<StorePage />} />
                   <Route path="checkout" element={<CheckoutPage />} />
                 </Route>
+
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </main>
@@ -69,6 +78,7 @@ const App: React.FC = () => {
           </div>
         </Router>
       </ToastProvider>
+
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
