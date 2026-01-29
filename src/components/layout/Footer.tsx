@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
 
           {/* Copyright */}
           <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest">
-            © 2026 NetReach
+            © 2026 NetReach. All rights reserved.
           </p>
         </div>
 
