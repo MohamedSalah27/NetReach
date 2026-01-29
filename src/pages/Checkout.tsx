@@ -253,7 +253,7 @@ export const CheckoutPage: React.FC = () => {
                     onClick={() => navigate('/terms')}
                     className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
                   >
-                    Terms of Service
+                    Terms & Conditions
                   </button>{' '}
                   and{' '}
                   <button
