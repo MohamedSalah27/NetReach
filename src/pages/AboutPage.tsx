@@ -8,7 +8,7 @@ export const AboutPage: React.FC = () => {
     <div className="min-h-screen bg-[#050508] text-white pt-32 pb-20 px-6 selection:bg-purple-500/30">
       <div className="max-w-5xl mx-auto">
         
-        {/* 1. Hero Section - Optimized Spacing */}
+        {/* 1. Hero Section */}
         <div className="text-center mb-24">
           <div className="inline-flex items-center gap-2 text-purple-400 text-[10px] uppercase tracking-[0.3em] font-black mb-6">
             <Target className="w-3 h-3" />
@@ -26,62 +26,63 @@ export const AboutPage: React.FC = () => {
           </p>
         </div>
 
-        {/* 2. Timeline Story Section - Fixed Line Visibility */}
+        {/* 2. Timeline Story Section */}
         <div className="relative mb-28">
             
-            {/* Title - Compact and Branded */}
+            {/* Title - Updated with Site Colors */}
             <div className="text-center mb-16">
-                <h2 className="text-3xl font-black mb-3 italic uppercase tracking-tighter">How We Started</h2>
-                <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+                <h2 className="text-4xl font-black mb-3 italic uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-white">
+                  How We Started
+                </h2>
+                <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-[0_0_15px_rgba(168,85,247,0.6)]"></div>
             </div>
 
-            {/* Vertical Line - Neon Glow Effect */}
+            {/* Vertical Line - High Intensity Brand Gradient */}
             <div className="absolute left-4 md:left-1/2 top-24 bottom-0 w-[2px] md:-translate-x-1/2 z-0">
-                <div className="h-full w-full bg-gradient-to-b from-purple-600 via-pink-500 to-purple-600 opacity-40 shadow-[0_0_15px_rgba(168,85,247,0.4)]"></div>
+                <div className="h-full w-full bg-gradient-to-b from-purple-600 via-pink-500 to-purple-600 opacity-50 shadow-[0_0_20px_rgba(168,85,247,0.3)]"></div>
             </div>
 
-            {/* Stage 1: Early 2024 */}
+            {/* Stage 1: Early 2024 - Telegram & Discord Era */}
             <div className="relative z-10 mb-16 md:flex justify-between items-center group">
                 <div className="md:w-[45%] mb-6 md:mb-0 md:text-right order-1 transition-transform group-hover:-translate-y-1">
-                    <div className="inline-flex p-3 rounded-2xl bg-purple-500/10 text-purple-400 mb-3 border border-purple-500/20">
+                    <div className="inline-flex p-3 rounded-2xl bg-purple-500/10 text-purple-400 mb-3 border border-purple-500/20 shadow-[0_0_15px_rgba(168,85,247,0.1)]">
                         <MessageCircle className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-black text-white mb-1">Early 2024: The Telegram Era</h3>
+                    <h3 className="text-xl font-black text-white mb-1">Early 2024: The Underground Era</h3>
                     <p className="text-slate-400 leading-relaxed text-xs">
-                        NetReach began as a reputation, not a website. We operated exclusively on <strong>Telegram & Discord</strong>, manually vetting high-trust accounts for elite marketers.
+                        NetReach began as a reputation. We operated exclusively on <strong className="text-purple-400">Telegram & Discord</strong>, providing hand-verified, high-trust accounts and proxies to elite circles. Trust was our only currency.
                     </p>
                 </div>
                 
-                {/* Glowing Dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-[#050508] border-2 border-purple-500 rounded-full -translate-x-[7px] md:-translate-x-1/2 z-20 shadow-[0_0_12px_#a855f7]"></div>
+                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-[#050508] border-2 border-purple-500 rounded-full -translate-x-[7px] md:-translate-x-1/2 z-20 shadow-[0_0_15px_#a855f7]"></div>
                 <div className="md:w-[45%] order-2"></div>
             </div>
 
-            {/* Stage 2: Mid 2024 */}
+            {/* Stage 2: Mid 2024 - Forum & Marketplaces Expansion */}
             <div className="relative z-10 mb-16 md:flex justify-between items-center group">
                 <div className="md:w-[45%] order-1 md:order-2 pl-12 md:pl-0 text-left transition-transform group-hover:-translate-y-1">
-                    <div className="inline-flex p-3 rounded-2xl bg-pink-500/10 text-pink-400 mb-3 border border-pink-500/20">
+                    <div className="inline-flex p-3 rounded-2xl bg-pink-500/10 text-pink-400 mb-3 border border-pink-500/20 shadow-[0_0_15px_rgba(236,72,153,0.1)]">
                         <Globe className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-black text-white mb-1">Mid 2024: The Expansion</h3>
+                    <h3 className="text-xl font-black text-white mb-1">Mid 2024: Digital Scaling</h3>
                     <p className="text-slate-400 leading-relaxed text-xs">
-                        Demand exploded beyond what we could handle manually. We expanded to private forums and digital marketplaces, becoming top-rated vendors.
+                        Demand outgrew the shadows. We established a massive presence on private <strong className="text-pink-400">forums and digital marketplaces</strong>, showcasing our infrastructure to a wider audience and becoming top-tier vendors.
                     </p>
                 </div>
 
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-[#050508] border-2 border-pink-500/50 rounded-full -translate-x-[7px] md:-translate-x-1/2 z-20 shadow-[0_0_10px_rgba(236,72,153,0.3)]"></div>
+                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-[#050508] border-2 border-pink-500 rounded-full -translate-x-[7px] md:-translate-x-1/2 z-20 shadow-[0_0_15px_#ec4899]"></div>
                 <div className="md:w-[45%] order-2 md:order-1"></div>
             </div>
 
-            {/* Stage 3: Late 2025 */}
+            {/* Stage 3: Late 2025 - Platform Go-Live */}
             <div className="relative z-10 md:flex justify-between items-center group">
                 <div className="md:w-[45%] mb-6 md:mb-0 md:text-right order-1 transition-transform group-hover:-translate-y-1">
                     <div className="inline-flex p-3 rounded-2xl bg-purple-500/10 text-purple-400 mb-3 border border-purple-500/20 shadow-[0_0_15px_rgba(168,85,247,0.1)]">
                         <Server className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-black text-white mb-1">Late 2025: The Platform Launch</h3>
+                    <h3 className="text-xl font-black text-white mb-1">Late 2025: NetReach.site</h3>
                     <p className="text-slate-400 leading-relaxed text-xs">
-                        We launched <strong>NetReach.site</strong>. A fully automated, API-driven infrastructure that delivers the same "hand-verified" quality instantly.
+                        To eliminate wait times, we launched the current <strong className="text-purple-400">NetReach.site</strong> platform in late 2025. A fully automated, zero-failure system providing instant delivery for our global clients.
                     </p>
                 </div>
 
@@ -90,8 +91,8 @@ export const AboutPage: React.FC = () => {
             </div>
         </div>
 
-        {/* 3. Stats Strip - Brand Colors */}
-        <div className="mb-24 p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 flex flex-wrap justify-between items-center gap-8 text-center divide-x divide-white/5">
+        {/* 3. Stats Strip */}
+        <div className="mb-20 p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 flex flex-wrap justify-between items-center gap-8 text-center divide-x divide-white/5">
             <div className="flex-1">
                 <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-pink-600 mb-1">2024</div>
                 <div className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Established</div>
@@ -107,7 +108,7 @@ export const AboutPage: React.FC = () => {
         </div>
 
         {/* 4. VIP Partnership Section */}
-        <div className="group mb-20 p-10 md:p-14 rounded-[2.5rem] bg-gradient-to-r from-[#1a1500] to-transparent border border-yellow-500/20 relative overflow-hidden transition-all duration-500 hover:border-yellow-500/50 hover:scale-[1.01] shadow-xl">
+        <div className="group mb-16 p-10 md:p-14 rounded-[2.5rem] bg-gradient-to-r from-[#1a1500] to-transparent border border-yellow-500/20 relative overflow-hidden transition-all duration-500 hover:border-yellow-500/50 hover:scale-[1.01] shadow-xl">
             <div className="absolute top-0 right-0 p-12 opacity-10 group-hover:opacity-30 transition-all group-hover:scale-110 duration-700 pointer-events-none">
                 <Crown className="w-32 h-32 text-yellow-500" />
             </div>
@@ -116,19 +117,19 @@ export const AboutPage: React.FC = () => {
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-[10px] uppercase tracking-widest font-black mb-4">
                         <Crown className="w-3 h-3" /> VIP Partnership
                     </div>
-                    <h2 className="text-3xl font-black mb-4 text-white uppercase italic tracking-tighter leading-none">Focus on Sales. <br/> Let Us Handle Ops.</h2>
+                    <h2 className="text-3xl font-black mb-4 text-white leading-tight uppercase italic tracking-tighter">Focus on Sales. <br/> Let Us Handle Ops.</h2>
                     <p className="text-slate-400 text-sm leading-relaxed">
                         For high-volume agencies: You handle the clients; our specialized team runs the entire technical operation.
                     </p>
                 </div>
-                <button onClick={() => navigate('/contact')} className="bg-yellow-500/10 p-5 rounded-full border border-yellow-500/20 hover:bg-yellow-500 hover:text-black transition-all cursor-pointer">
+                <button onClick={() => navigate('/contact')} className="bg-yellow-500/10 p-5 rounded-full border border-yellow-500/20 hover:bg-yellow-500 hover:text-black transition-all cursor-pointer group/btn">
                     <ArrowRight className="w-6 h-6 text-yellow-500 group-hover:text-black" />
                 </button>
             </div>
         </div>
 
         {/* 5. Upgrade Infrastructure Section */}
-        <div className="group mb-12 p-10 md:p-14 rounded-[2.5rem] bg-gradient-to-r from-purple-900/20 to-transparent border border-purple-500/20 relative overflow-hidden transition-all duration-500 hover:border-purple-500/50 hover:scale-[1.01]">
+        <div className="group mb-20 p-10 md:p-14 rounded-[2.5rem] bg-gradient-to-r from-purple-900/20 to-transparent border border-purple-500/20 relative overflow-hidden transition-all duration-500 hover:border-purple-500/50 hover:scale-[1.01]">
             <div className="absolute top-0 right-0 p-12 opacity-10 group-hover:opacity-30 transition-all group-hover:scale-110 duration-700 pointer-events-none">
                 <Zap className="w-32 h-32 text-purple-500" />
             </div>
@@ -142,7 +143,7 @@ export const AboutPage: React.FC = () => {
                         Premium assets for agencies demanding zero-failure infrastructure. Experience peak operational performance.
                     </p>
                 </div>
-                <button onClick={() => navigate('/store')} className="bg-purple-500/10 px-8 py-5 rounded-full border border-purple-500/20 hover:bg-purple-500 hover:text-black transition-all flex items-center gap-4 cursor-pointer">
+                <button onClick={() => navigate('/store')} className="bg-purple-500/10 px-8 py-5 rounded-full border border-purple-500/20 hover:bg-purple-500 hover:text-black transition-all flex items-center gap-4 group/btn cursor-pointer">
                     <span className="text-[10px] font-black uppercase tracking-widest">Go to Store</span>
                     <ArrowRight className="w-5 h-5" />
                 </button>
