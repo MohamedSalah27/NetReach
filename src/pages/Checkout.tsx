@@ -15,7 +15,7 @@ import USDC from '/images/usdc.avif';
 import Bitcoin from '/images/bitcoin.avif';
 import type { StoreProduct } from '../lib/types';
 
-export const CheckoutPage: React.FC = () => {
+export const Checkout: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { showToast } = useToast();

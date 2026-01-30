@@ -10,9 +10,12 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import {
   HomePage,
+  AboutPage,
+  FAQPage,
+  ContactPage,
   StorePage,
   NotFoundPage,
-  CheckoutPage,
+  Checkout,
   PaymentSuccess,
   PaymentCancel,
   PaymentResult,
@@ -53,6 +56,9 @@ const App: React.FC = () => {
             <main>
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/faq" element={<FAQPage />} />
+                <Route path="/contact" element={<ContactPage />} />
                 <Route path="/payment-result" element={<PaymentResult />} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
                 <Route path="/payment-cancel" element={<PaymentCancel />} />
@@ -61,7 +67,7 @@ const App: React.FC = () => {
                 <Route path="/refund" element={<RefundPolicy />} />
                 <Route path="/store">
                   <Route index element={<StorePage />} />
-                  <Route path="checkout" element={<CheckoutPage />} />
+                  <Route path="checkout" element={<Checkout />} />
                 </Route>
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
