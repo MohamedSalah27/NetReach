@@ -35,8 +35,8 @@ export const AboutPage: React.FC = () => {
                 <div className="w-20 h-1 bg-purple-500 mx-auto rounded-full opacity-50"></div>
             </div>
 
-            {/* Vertical Line */}
-            <div className="absolute left-4 md:left-1/2 top-20 bottom-0 w-px bg-gradient-to-b from-purple-500/0 via-purple-500/30 to-purple-500/0 md:-translate-x-1/2"></div>
+{/* Vertical Line - Updated for better visibility */}
+<div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-purple-500/50 to-transparent md:-translate-x-1/2 z-0"></div>
 
             {/* Stage 1: Early 2024 */}
             <div className="relative z-10 mb-24 md:flex justify-between items-center group">
