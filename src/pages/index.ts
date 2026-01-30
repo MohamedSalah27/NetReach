@@ -10,4 +10,4 @@ export * from './PaymentSuccess';
 export * from './PaymentCancel';
 export * from './TermsOfService';
 export * from './PrivacyPolicy';
-export * from './RefundPolicy';
+export * from './RefundPolicy'; // الحرف P كبير زي اسم الملف
