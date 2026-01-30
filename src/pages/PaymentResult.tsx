@@ -8,20 +8,34 @@ export const PaymentResult: React.FC = () => {
 
   useEffect(() => {
     const status = searchParams.get('status');
+    const orderId = searchParams.get('order_id');
+
+    console.log('[PaymentResult] Status:', status);
+    console.log('[PaymentResult] Order ID:', orderId);
 
     const handleRedirect = () => {
+      // ✅ If payment is successful
       if (status === 'paid' || status === 'paid_over') {
         navigate('/payment-success', { replace: true });
-      } else if (
-        ['cancel', 'expired', 'wrong_amount', 'fail'].includes(status || '')
-      ) {
+      } 
+      // ✅ If payment failed/cancelled
+      else if (['cancel', 'expired', 'wrong_amount', 'fail'].includes(status || '')) {
         navigate('/payment-cancel', { replace: true });
-      } else {
+      } 
+      // ✅ If user clicked back button (no status, just order_id)
+      // This happens when user clicks back in Cryptomus iframe
+      else if (!status && orderId) {
+        console.log('[PaymentResult] User went back, redirecting to store');
+        navigate('/store', { replace: true });
+      }
+      // ✅ Fallback - go to store
+      else {
         navigate('/store', { replace: true });
       }
     };
 
-    const timeout = setTimeout(handleRedirect, 2000);
+    // Give it 500ms to show loading (reduced from 1.5s for better UX)
+    const timeout = setTimeout(handleRedirect, 500);
     return () => clearTimeout(timeout);
   }, [searchParams, navigate]);
 
@@ -44,3 +58,5 @@ export const PaymentResult: React.FC = () => {
     </div>
   );
 };
+
+export default PaymentResult;

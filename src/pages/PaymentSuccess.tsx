@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle2, Mail, ArrowRight } from 'lucide-react';
 
@@ -45,3 +44,5 @@ export const PaymentSuccess: React.FC = () => {
     </div>
   );
 };
+
+export default PaymentSuccess;

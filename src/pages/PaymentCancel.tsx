@@ -53,3 +53,5 @@ export const PaymentCancel: React.FC = () => {
     </div>
   );
 };
+
+export default PaymentCancel;
