@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Clock, MessageSquare, Send, CheckCircle2, Copy, SendHorizontal } from 'lucide-react';
+import { Mail, Clock, MessageSquare, CheckCircle2, Copy, SendHorizontal } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
