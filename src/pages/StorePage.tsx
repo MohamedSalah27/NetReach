@@ -273,5 +273,3 @@ export const StorePage: React.FC = () => {
     </div>
   );
 };
-
-export default StorePage;
