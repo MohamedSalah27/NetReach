@@ -16,7 +16,7 @@ export const FEATURES = [
   },
   {
     icon: Users,
-    title: 'High-Intent Audience Harvesting',
+    title: 'High-Intent Audience Identification',
     description:
       'We move past basic hashtags to "Look-alike Extraction." By monitoring real-time post-level engagers and keyword intent, we identify prospects while their interest in your niche is at its peak.',
   },
