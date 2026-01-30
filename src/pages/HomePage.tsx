@@ -286,21 +286,21 @@ export const HomePage: React.FC = () => {
               },
               { 
                 name: 'Instagram', 
-                price: '$8', 
+                price: '$5', 
                 tag: 'HIGH TRUST',
                 gradient: 'from-pink-500 via-purple-500 to-indigo-600',
                 description: 'Original Email Included'
               },
               { 
-                name: 'Residential', 
-                price: '$15', 
+                name: 'Proxies', 
+                price: '$5', 
                 tag: 'GLOBAL STATIC',
                 gradient: 'from-green-500 via-emerald-500 to-teal-600',
                 description: 'Rotating IPs · 99.9% Uptime'
               },
               { 
-                name: 'Automation', 
-                price: '$25', 
+                name: 'Automation Tools', 
+                price: '$150', 
                 tag: 'UNLIMITED',
                 gradient: 'from-orange-500 via-red-500 to-pink-600',
                 description: 'Full License · Updates'
