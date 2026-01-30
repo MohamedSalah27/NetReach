@@ -205,9 +205,21 @@ export const StorePage: React.FC = () => {
     );
 
   return (
-    <div className="pt-32 pb-20 bg-[#050508] min-h-screen relative overflow-hidden">
+    <div className="pt-0 pb-20 bg-[#050508] min-h-screen relative overflow-hidden">
+      {/* ✅ FLASH SALE BANNER */}
+      <div className="w-full bg-gradient-to-r from-emerald-500 via-purple-500 to-emerald-500 py-2.5 overflow-hidden sticky top-[88px] z-40 border-b border-white/10">
+        <div className="flex animate-scroll-banner whitespace-nowrap">
+          {[...Array(20)].map((_, i) => (
+            <span key={i} className="mx-8 text-white font-black text-xs uppercase tracking-[0.3em] flex items-center gap-2">
+              <span>⚡</span>
+              FLASH SALE: 25% OFF ON ALL TOOLS
+            </span>
+          ))}
+        </div>
+      </div>
+
       <div className="absolute top-0 right-0 w-125 h-125 bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 relative z-10 text-left pt-12">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 text-left pt-32">
         <header className="mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[10px] uppercase tracking-[0.2em] font-bold mb-6">
             <Layers className="w-3 h-3" />
@@ -245,6 +257,21 @@ export const StorePage: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* ✅ CSS Animation */}
+      <style>{`
+        @keyframes scroll-banner {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        
+        .animate-scroll-banner {
+          animation: scroll-banner 30s linear infinite;
+          display: flex;
+        }
+      `}</style>
     </div>
   );
 };
+
+export default StorePage;

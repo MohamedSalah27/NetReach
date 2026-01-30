@@ -26,12 +26,11 @@ export const NotFoundPage: React.FC = () => {
           </span>
         </h1>
         <p className="text-lg text-slate-500 mb-12 max-w-md mx-auto font-medium leading-relaxed">
-          The node you are looking for has been decommissioned or moved to a
-          restricted sector.
+          The node you are looking for has been decommissioned or moved to a restricted sector.
         </p>
         <button
           onClick={handleGoHome}
-          className="group flex items-center gap-3 px-8 py-4 bg-white text-black hover:bg-purple-400 rounded-full font-bold transition-all duration-300 mx-auto active:scale-95"
+          className="group flex items-center gap-3 px-8 py-4 bg-white text-black hover:bg-purple-400 rounded-full font-bold transition-all duration-300 mx-auto active:scale-95 cursor-pointer"
         >
           <Home className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
           Return to Infrastructure
@@ -40,3 +39,5 @@ export const NotFoundPage: React.FC = () => {
     </div>
   );
 };
+
+export default NotFoundPage;
