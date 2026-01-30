@@ -40,7 +40,7 @@ export const ContactPage: React.FC = () => {
     setIsSubmitting(true);
     try {
       // الاتصال بالباك ايند الخاص بك
-      const response = await fetch('https://localhost:7154/api/contact', { 
+      const response = await fetch('https://netreach.runasp.net/api/contact', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
