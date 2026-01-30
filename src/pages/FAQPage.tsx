@@ -32,7 +32,7 @@ export const FAQPage: React.FC = () => {
     },
     {
       q: "Is it safe to use these accounts?",
-      a: "Our accounts are aged properly to minimize ban risks. For maximum safety, we strongly recommend using high-quality residential proxies during operation.",
+      a: "Our accounts are aged properly to minimize ban risks. For maximum safety, we strongly recommend using high-quality proxies during operation.",
       icon: <Lock className="w-5 h-5 text-emerald-400" />
     },
     {
