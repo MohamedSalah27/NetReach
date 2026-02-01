@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, Shield } from 'lucide-react';
+import { ChevronLeft, Shield, Lock, Eye, FileText } from 'lucide-react';
 
 export const PrivacyPolicy: React.FC = () => {
   const navigate = useNavigate();
@@ -20,79 +20,62 @@ export const PrivacyPolicy: React.FC = () => {
             <Shield className="w-3 h-3" />
             Privacy & Security
           </div>
-
-          <h1 className="text-5xl lg:text-6xl font-black tracking-tighter mb-4">
+          <h1 className="text-5xl lg:text-6xl font-black tracking-tighter mb-4 text-white">
             Privacy Policy
           </h1>
-
           <p className="text-slate-400">
-            Last Updated: January 2, 2026
+            Last Updated: February 1, 2026
           </p>
         </div>
 
         <div className="prose prose-invert prose-slate max-w-none">
 
-          {/* Section 1 */}
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">1. Information We Collect</h2>
+          {/* 1. Merchant of Record Disclosure */}
+          <div className="p-8 rounded-3xl bg-purple-500/5 border border-purple-500/20 mb-8 shadow-[0_0_30px_rgba(168,85,247,0.05)]">
+            <div className="flex items-center gap-3 mb-4 text-purple-400">
+              <Lock className="w-6 h-6" />
+              <h2 className="text-2xl font-bold m-0 text-white">Payment Processing</h2>
+            </div>
+            <p className="text-slate-300 leading-relaxed mb-4">
+              Our order process is conducted by our online reseller <strong className="text-white font-bold">Paddle.com</strong>. Paddle is the Merchant of Record for all our orders. 
+            </p>
+            <p className="text-slate-300 leading-relaxed">
+              Paddle provides all customer service inquiries and handles returns. Your personal data will be processed by Paddle in accordance with their own <a href="https://paddle.com/legal/privacy" className="text-purple-400 underline hover:text-purple-300 transition-colors">Privacy Policy</a>.
+            </p>
+          </div>
+
+          {/* Section 1: Information Collection */}
+          <div className="p-8 rounded-3xl bg-white/5 border border-white/10 mb-8">
+            <div className="flex items-center gap-3 mb-4 text-white">
+              <Eye className="w-6 h-6 text-purple-400" />
+              <h2 className="text-2xl font-bold m-0 text-white">1. Information We Collect</h2>
+            </div>
             <p className="text-slate-300 leading-relaxed mb-4">
               When you use NetReach services, we collect the following information:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-slate-300 ml-4">
-              <li><strong className="text-white">Email Address:</strong> Required for product delivery</li>
-              <li><strong className="text-white">Payment Information:</strong> Processed securely through authorized partners</li>
-              <li><strong className="text-white">Order Details:</strong> Product type and quantity</li>
-              <li><strong className="text-white">Technical Data:</strong> IP & browser info</li>
+            <ul className="list-disc list-inside space-y-3 text-slate-300 ml-4">
+              <li><strong className="text-white">Email Address:</strong> Used for instant automated product delivery.</li>
+              <li><strong className="text-white">Order Details:</strong> Specifics regarding your outreach infrastructure assets.</li>
+              <li><strong className="text-white">Technical Data:</strong> IP address and browser info for fraud prevention purposes.</li>
             </ul>
           </div>
 
-          {/* Section 2 */}
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">2. How We Use Your Information</h2>
-            <ul className="list-disc list-inside space-y-2 text-slate-300 ml-4">
-              <li>Process orders</li>
-              <li>Security & fraud prevention</li>
-              <li>Legal compliance</li>
-            </ul>
-          </div>
-
-          {/* Section 3 */}
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">3. Data Security</h2>
+          {/* Section 2: Data Usage */}
+          <div className="p-8 rounded-3xl bg-white/5 border border-white/10 mb-8">
+            <div className="flex items-center gap-3 mb-4 text-white">
+              <FileText className="w-6 h-6 text-purple-400" />
+              <h2 className="text-2xl font-bold m-0 text-white">2. How We Use Data</h2>
+            </div>
             <p className="text-slate-300">
-              We use HTTPS encryption and secure gateways. Payment data is never stored.
-            </p>
-          </div>
-
-          {/* Section 4 */}
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">4. Email Communications</h2>
-            <p className="text-slate-300">
-              Only transactional emails. No marketing spam.
-            </p>
-          </div>
-
-          {/* Section 5 */}
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">5. Third-Party Services</h2>
-            <p className="text-slate-300">
-              Payments & email services only.
-            </p>
-          </div>
-
-          {/* Section 6 */}
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-            <h2 className="text-2xl font-bold mb-4 text-white">6. Changes</h2>
-            <p className="text-slate-300">
-              We may update this policy anytime.
+              We use your information strictly to fulfill orders, prevent fraudulent transactions, and comply with the mandatory requirements of our payment providers.
             </p>
           </div>
 
         </div>
 
-        <div className="mt-12 p-6 rounded-3xl bg-purple-500/10 border border-purple-500/30 text-center">
-          <p className="text-sm text-slate-400">
-            We are committed to protecting your privacy.
+        <div className="mt-12 p-8 rounded-3xl bg-white/5 border border-white/10 text-center">
+          <p className="text-xs text-slate-500 uppercase tracking-widest">
+            © 2026 NetReach — Secured by Paddle
           </p>
         </div>
       </div>
