@@ -45,7 +45,7 @@ export const RefundPolicy: React.FC = () => {
             <p className="text-slate-300 leading-relaxed">
               In accordance with applicable consumer protection laws, customers
               have the right to withdraw from a purchase within <strong>14 days</strong>
-              without providing a reason, unless an exception applies.
+               without providing a reason, unless an exception applies.
             </p>
           </div>
 
