@@ -247,40 +247,31 @@ export const Checkout: React.FC = () => {
                     </svg>
                   )}
                 </div>
-<div className="flex flex-col gap-6 mt-10">
-  
-  {/* 1. مربع الاختيار (Checkbox) - التعديل الذي اقترحته أنت وهو ممتاز */}
-  <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/5 border border-white/10">
-    <input 
-      type="checkbox" 
-      id="compliance-check"
-      className="mt-1 w-4 h-4 rounded border-white/20 bg-black text-purple-600 focus:ring-purple-500 cursor-pointer"
-    />
-    <label htmlFor="compliance-check" className="text-sm text-slate-300 leading-relaxed cursor-pointer">
-      I agree to the{' '}
-      <button onClick={() => navigate('/terms')} className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors">Terms & Conditions</button>,{' '}
-      <button onClick={() => navigate('/privacy')} className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors">Privacy Policy</button>{' '}
-      and{' '}
-      <button onClick={() => navigate('/refund')} className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors">Refund Policy</button>.
-      <span className="block mt-2 text-xs text-slate-500 italic">
-        I expressly consent to the immediate delivery of digital content and acknowledge that I lose my right of withdrawal once delivery begins.
-      </span>
-    </label>
-  </div>
-
-  {/* 2. زر الدفع الوحيد والنهائي - النص الإلزامي من Paddle */}
-  <button 
-    className="w-full py-5 rounded-2xl bg-purple-600 text-white font-black uppercase tracking-[0.2em] text-xs hover:bg-purple-500 transition-all shadow-[0_0_30px_rgba(168,85,247,0.4)] cursor-pointer active:scale-[0.98]"
+<span className="text-sm text-slate-300 leading-relaxed">
+  By completing this purchase, you agree to our{' '}
+  <button
+    onClick={() => navigate('/terms')}
+    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
   >
-    Order with obligation to pay
+    Terms & Conditions
   </button>
+  ,{' '}
+  <button
+    onClick={() => navigate('/privacy')}
+    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
+  >
+    Privacy Policy
+  </button>{' '}
+  and{' '}
+  <button
+    onClick={() => navigate('/refund')}
+    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
+  >
+    Refund Policy
+  </button>
+  . You also agree that digital products are delivered immediately after purchase.
+</span>
 
-  {/* تنويه الشفافية */}
-  <p className="text-[10px] text-center text-slate-600 uppercase tracking-widest font-medium">
-    Secured by <span className="text-slate-400">Paddle</span> — Merchant of Record
-  </p>
-
-</div>
 
               </label>
             </div>
@@ -335,7 +326,7 @@ export const Checkout: React.FC = () => {
                     Processing...
                   </span>
                 ) : canProceed ? (
-                  'Initialize Payment'
+                  'ORDER WITH OBLIGATION TO PAY'
                 ) : !isEmailValid ? (
                   'Enter Valid Email'
                 ) : (
