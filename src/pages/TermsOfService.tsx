@@ -1,16 +1,16 @@
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, ShieldCheck, Scale, AlertTriangle } from 'lucide-react';
+import { ChevronLeft, Scale } from 'lucide-react';
 
-export const TermsOfService: React.FC = () => {
+export const Terms: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#050508] text-white pt-32 pb-20 px-6 font-sans">
+    <div className="min-h-screen bg-[#050508] text-white pt-32 pb-20 px-6">
       <div className="max-w-4xl mx-auto">
-        {/* زرار الرجوع */}
+
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors mb-12 group cursor-pointer"
+          className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors mb-12 group"
         >
           <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Back
@@ -18,72 +18,88 @@ export const TermsOfService: React.FC = () => {
 
         <div className="mb-12">
           <div className="inline-flex items-center gap-2 text-purple-400 text-[10px] uppercase tracking-widest font-bold mb-4">
-            <ShieldCheck className="w-3 h-3" />
-            Legal Documentation
+            <Scale className="w-3 h-3" />
+            Terms & Conditions
           </div>
           <h1 className="text-5xl lg:text-6xl font-black tracking-tighter mb-4">
             Terms & Conditions
           </h1>
-          <p className="text-slate-400">
-            Last Updated: February 3, 2026
-          </p>
+          <p className="text-slate-400">Last Updated: February 2026</p>
         </div>
 
-        <div className="prose prose-invert prose-slate max-w-none space-y-8">
-          
-          {/* 1. Merchant of Record - تعديل ليمون سكويزي الإجباري */}
-          <div className="p-6 rounded-3xl bg-purple-500/10 border border-purple-500/30">
-            <h2 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
-              <Scale className="w-5 h-5 text-purple-400" /> Merchant of Record
+        <div className="space-y-8">
+
+          {/* Overview */}
+          <section className="p-8 rounded-3xl bg-white/5 border border-white/10">
+            <p className="text-slate-300 leading-relaxed">
+              These Terms & Conditions govern your use of the NetReach website
+              and any products purchased through it. By accessing this website
+              or completing a purchase, you agree to be bound by these terms.
+            </p>
+          </section>
+
+          {/* Merchant of Record */}
+          <section className="p-8 rounded-3xl bg-purple-500/5 border border-purple-500/20">
+            <h2 className="text-2xl font-bold mb-4 text-white">
+              Merchant of Record
             </h2>
             <p className="text-slate-300 leading-relaxed">
-              Our order process is conducted by our online reseller <strong className="text-white">Lemon Squeezy, LLC</strong>. 
-              Lemon Squeezy is the Merchant of Record for all our orders. They handle all payments, taxes, and provide 
-              customer service related to your transaction. By purchasing, you enter into a binding legal contract with Lemon Squeezy.
+              Payments for products sold on NetReach are processed by
+              <strong className="text-white"> Lemon Squeezy </strong>
+              as the Merchant of Record. Lemon Squeezy is responsible for
+              payment processing, tax handling, and transaction compliance.
             </p>
-          </div>
+          </section>
 
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-            <h2 className="text-2xl font-bold mb-4 text-white">1. Services Description</h2>
-            <p className="text-slate-300 leading-relaxed">
-              NetReach provides digital products including outreach infrastructure, proxies, and social media assets delivered electronically via email or secure dashboard.
-            </p>
-          </div>
-
-          {/* 2. بند الغرامة - لحمايتك من الـ Chargebacks */}
-          <div className="p-6 rounded-3xl bg-red-500/10 border border-red-500/30">
-            <h2 className="text-2xl font-bold mb-4 text-red-400 flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5" /> Chargeback Penalty
+          {/* Products */}
+          <section className="p-8 rounded-3xl bg-white/5 border border-white/10">
+            <h2 className="text-2xl font-bold mb-4 text-white">
+              Digital Products
             </h2>
             <p className="text-slate-300 leading-relaxed">
-              You agree to contact NetReach support before raising a dispute with your bank. 
-              If you raise a meritless chargeback or fraudulent dispute, we reserve the right to 
-              <strong className="text-white font-bold"> charge a liquidated damage fee of $100 USD </strong>  
-              and permanently prohibit you from purchasing further products.
+              NetReach provides digital products and services delivered
+              electronically. Access details or credentials are provided
+              after payment confirmation.
             </p>
-          </div>
+          </section>
 
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-            <h2 className="text-2xl font-bold mb-4 text-white">3. Refund Policy</h2>
+          {/* User Responsibilities */}
+          <section className="p-8 rounded-3xl bg-white/5 border border-white/10">
+            <h2 className="text-2xl font-bold mb-4 text-white">
+              User Responsibilities
+            </h2>
+            <ul className="space-y-3 text-slate-300">
+              <li>• You agree to provide accurate information during checkout.</li>
+              <li>• You will not use our products for unlawful purposes.</li>
+              <li>• You are responsible for maintaining the confidentiality of delivered assets.</li>
+            </ul>
+          </section>
+
+          {/* Limitation */}
+          <section className="p-8 rounded-3xl bg-white/5 border border-white/10">
+            <h2 className="text-2xl font-bold mb-4 text-white">
+              Limitation of Liability
+            </h2>
             <p className="text-slate-300 leading-relaxed">
-              For detailed information about our refund policy and the loss of withdrawal rights for digital content, please visit our <a href="/refund" className="text-purple-400 underline">Refund Policy page</a>.
+              Products are provided on an “as-is” basis. NetReach shall not be
+              liable for indirect or consequential damages arising from the
+              use of our services.
             </p>
-          </div>
+          </section>
 
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-            <h2 className="text-2xl font-bold mb-4 text-white">4. Governing Law</h2>
-            <p className="text-slate-300 leading-relaxed">
-              For customers located in the USA, this Agreement is governed by the laws of the <strong className="text-white">State of Utah</strong>. 
-              For non-USA consumers, the laws of England shall govern any transaction disputes.
+          {/* Contact */}
+          <section className="p-8 rounded-3xl bg-white/5 border border-white/10 text-center">
+            <p className="text-slate-400 mb-6">
+              Questions about these terms?
             </p>
-          </div>
+            <a
+              href="/#contact"
+              className="inline-block px-10 py-4 rounded-full bg-purple-500 text-white font-black uppercase tracking-widest text-xs hover:bg-purple-600 transition-all shadow-[0_0_20px_rgba(168,85,247,0.35)]"
+            >
+              Contact Us
+            </a>
+          </section>
 
-        </div>
-
-        <div className="mt-12 p-6 rounded-3xl bg-purple-500/10 border border-purple-500/30 text-center">
-          <p className="text-sm text-slate-400 italic">
-            By completing a purchase, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions via a "Click-Wrap" agreement.
-          </p>
         </div>
       </div>
     </div>

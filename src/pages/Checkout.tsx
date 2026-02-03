@@ -247,30 +247,34 @@ export const Checkout: React.FC = () => {
                     </svg>
                   )}
                 </div>
-<span className="text-sm text-slate-300 leading-relaxed">
-  By completing this purchase, you agree to our{' '}
-  <button
-    onClick={() => navigate('/terms')}
-    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
-  >
-    Terms & Conditions
-  </button>
-  ,{' '}
-  <button
-    onClick={() => navigate('/privacy')}
-    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
-  >
-    Privacy Policy
-  </button>{' '}
-  and{' '}
-  <button
-    onClick={() => navigate('/refund')}
-    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
-  >
-    Refund Policy
-  </button>
-  . You also agree that digital products are delivered immediately after purchase.
-</span>
+<label className="flex items-start gap-3 text-sm text-slate-300">
+  <input
+    type="checkbox"
+    required
+    className="mt-1 accent-purple-500"
+  />
+  <span className="leading-relaxed">
+    I have read and agree to the{' '}
+    <button
+      onClick={() => navigate('/terms')}
+      className="text-purple-400 underline hover:text-purple-300"
+    >
+      Terms & Conditions
+    </button>,{' '}
+    <button
+      onClick={() => navigate('/privacy')}
+      className="text-purple-400 underline hover:text-purple-300"
+    >
+      Privacy Policy
+    </button>, and{' '}
+    <button
+      onClick={() => navigate('/refund')}
+      className="text-purple-400 underline hover:text-purple-300"
+    >
+      Refund Policy
+    </button>.
+  </span>
+</label>
 
 
               </label>
