@@ -326,7 +326,7 @@ export const Checkout: React.FC = () => {
                     Processing...
                   </span>
                 ) : canProceed ? (
-                  'ORDER WITH OBLIGATION TO PAY'
+                  'Complete Purchase'
                 ) : !isEmailValid ? (
                   'Enter Valid Email'
                 ) : (
