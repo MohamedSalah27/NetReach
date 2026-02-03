@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, ShieldCheck } from 'lucide-react';
+import { ChevronLeft, ShieldCheck, Scale, AlertTriangle } from 'lucide-react';
 
 export const TermsOfService: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#050508] text-white pt-32 pb-20 px-6">
+    <div className="min-h-screen bg-[#050508] text-white pt-32 pb-20 px-6 font-sans">
       <div className="max-w-4xl mx-auto">
         <button
           onClick={() => navigate(-1)}
@@ -23,87 +23,55 @@ export const TermsOfService: React.FC = () => {
           <h1 className="text-5xl lg:text-6xl font-black tracking-tighter mb-4">
             Terms & Conditions
           </h1>
-          <p className="text-slate-400">
-            Last Updated: January 2, 2026
-          </p>
+          <p className="text-slate-400">Last Updated: February 3, 2026</p>
         </div>
 
-        <div className="prose prose-invert prose-slate max-w-none">
-          {/* Company Information - Required by Paddle */}
-          <div className="p-6 rounded-3xl bg-purple-500/10 border border-purple-500/30 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">Company Information</h2>
+        <div className="prose prose-invert prose-slate max-w-none space-y-8">
+          {/* Section: Merchant of Record */}
+          <div className="p-6 rounded-3xl bg-purple-500/10 border border-purple-500/30">
+            <h2 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
+              <Scale className="w-5 h-5 text-purple-400" /> Merchant of Record
+            </h2>
             <p className="text-slate-300 leading-relaxed">
-              <strong className="text-white">Business Name:</strong> NetReach<br />
-              <strong className="text-white">Operating as:</strong> NetReach Digital Services<br />
-              <strong className="text-white">Website:</strong> https://netreach.site<br />
-              <strong className="text-white">Contact:</strong> Available via our <a href="/#contact" className="text-purple-400 underline">Contact Page</a>
-            </p>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">1. Acceptance of Terms</h2>
-            <p className="text-slate-300 leading-relaxed">
-              By accessing and using NetReach services, you agree to these Terms. If you do not agree, please discontinue use of our services immediately.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">2. Services Description</h2>
-            <p className="text-slate-300 leading-relaxed">
-              NetReach provides digital products including social media accounts, proxies, and automation-related software tools delivered electronically via email or secure download.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">3. Refund Policy</h2>
-            <p className="text-slate-300 leading-relaxed">
-              For detailed information about our refund policy, please visit our dedicated <a href="/refund" className="text-purple-400 underline">Refund Policy page</a>.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">4. Product Delivery</h2>
-            <p className="text-slate-300 leading-relaxed mb-3">
-              Products are delivered digitally within 1-30 minutes after successful payment confirmation to the email address provided during checkout.
-            </p>
-            <p className="text-slate-300 leading-relaxed">
-              It is your responsibility to provide a valid email address. We are not responsible for delivery failures due to incorrect email addresses or spam filters.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">5. Payment Processing</h2>
-            <p className="text-slate-300 leading-relaxed">
-              Payments are securely processed through licensed third-party payment gateways. We accept Credit/Debit Cards, PayPal, and various cryptocurrencies (Bitcoin, USDT, USDC).
-            </p>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">6. User Responsibilities</h2>
-            <p className="text-slate-300 leading-relaxed">
-              You agree to use purchased products in compliance with applicable laws and the terms of service of third-party platforms. NetReach is not responsible for account suspensions or restrictions imposed by third parties.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-white">7. Limitation of Liability</h2>
-            <p className="text-slate-300 leading-relaxed">
-              NetReach shall not be liable for any indirect, incidental, or consequential damages. Our total liability shall not exceed the amount you paid for the product in question.
+              Our order process is conducted by our online reseller <strong className="text-white">Lemon Squeezy, LLC</strong>. 
+              Lemon Squeezy is the Merchant of Record for all our orders. They handle all payments, taxes, and provide 
+              customer service related to your transaction. By purchasing, you enter into a binding legal contract with Lemon Squeezy.
             </p>
           </div>
 
           <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-            <h2 className="text-2xl font-bold mb-4 text-white">8. Contact Information</h2>
+            <h2 className="text-2xl font-bold mb-4 text-white">1. Service Usage</h2>
             <p className="text-slate-300 leading-relaxed">
-              For questions or support, visit our <a href="/#contact" className="text-purple-400 underline">Contact Page</a>.
+              NetReach provides digital outreach infrastructure, including proxies and social assets. 
+              You agree to use these services in compliance with all international and local laws. 
+              Abuse of our systems for illegal activities will result in immediate termination of service without refund.
+            </p>
+          </div>
+
+          {/* Section: Chargebacks - THE 100$ PENALTY */}
+          <div className="p-6 rounded-3xl bg-red-500/10 border border-red-500/30">
+            <h2 className="text-2xl font-bold mb-4 text-red-400 flex items-center gap-2">
+              <AlertTriangle className="w-5 h-5" /> Chargeback Penalty
+            </h2>
+            <p className="text-slate-300 leading-relaxed">
+              You agree to contact NetReach support to resolve any issues before raising a dispute with your bank. 
+              If you raise a meritless chargeback or fraudulent dispute, we reserve the right to 
+              <strong className="text-white font-bold underline ml-1">charge a liquidated damage fee of $100 USD</strong> 
+              and permanently prohibit you from purchasing further products.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
+            <h2 className="text-2xl font-bold mb-4 text-white">2. Governing Law</h2>
+            <p className="text-slate-300 leading-relaxed">
+              For customers located in the USA, this Agreement is governed by the laws of the <strong className="text-white">State of Utah</strong>. 
+              For non-USA consumers, the laws of England shall govern any transaction disputes.
             </p>
           </div>
         </div>
 
-        <div className="mt-12 p-6 rounded-3xl bg-purple-500/10 border border-purple-500/30 text-center">
-          <p className="text-sm text-slate-400">
-            By using NetReach services, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.
-          </p>
+        <div className="mt-12 text-center text-slate-500 text-sm italic">
+          By completing a purchase, you manifest your assent to these terms via a "Click-Wrap" agreement.
         </div>
       </div>
     </div>
