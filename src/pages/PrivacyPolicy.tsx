@@ -1,16 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-// ✅ أضفنا ChevronLeft هنا عشان نستخدمها في زرار الـ Back
-import { Shield, Lock, Eye, ChevronLeft } from 'lucide-react'; 
+import { ChevronLeft, Shield, Lock, Eye, FileText } from 'lucide-react';
 
 export const PrivacyPolicy: React.FC = () => {
-  // ✅ المتغير ده دلوقتى مستخدم تحت في الـ onClick
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#050508] text-white pt-32 pb-20 px-6 font-sans">
+    <div className="min-h-screen bg-[#050508] text-white pt-32 pb-20 px-6">
       <div className="max-w-4xl mx-auto">
-        
-        {/* 1️⃣ زرار الرجوع (Back Button): ده اللي هيشيل تحذير الـ navigate والـ ChevronLeft */}
         <button
           onClick={() => navigate(-1)}
           className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors mb-12 group cursor-pointer"
@@ -27,43 +23,59 @@ export const PrivacyPolicy: React.FC = () => {
           <h1 className="text-5xl lg:text-6xl font-black tracking-tighter mb-4 text-white">
             Privacy Policy
           </h1>
-          <p className="text-slate-400">Last Updated: February 3, 2026</p>
+          <p className="text-slate-400">
+            Last Updated: February 1, 2026
+          </p>
         </div>
 
-        <div className="prose prose-invert prose-slate max-w-none space-y-8">
-          {/* 2️⃣ قسم معالجة البيانات: التزاماً بشروط ليمون سكويزي كـ Merchant of Record */}
-          <div className="p-8 rounded-3xl bg-purple-500/5 border border-purple-500/20 shadow-[0_0_30px_rgba(168,85,247,0.05)]">
+        <div className="prose prose-invert prose-slate max-w-none">
+
+          {/* 1. Merchant of Record Disclosure */}
+          <div className="p-8 rounded-3xl bg-purple-500/5 border border-purple-500/20 mb-8 shadow-[0_0_30px_rgba(168,85,247,0.05)]">
             <div className="flex items-center gap-3 mb-4 text-purple-400">
               <Lock className="w-6 h-6" />
-              <h2 className="text-2xl font-bold m-0 text-white">Payment & Data Processing</h2>
+              <h2 className="text-2xl font-bold m-0 text-white">Payment Processing</h2>
             </div>
             <p className="text-slate-300 leading-relaxed mb-4">
-              All payment data is handled by our Merchant of Record, <strong className="text-white">Lemon Squeezy, LLC</strong>. 
-              They process your information according to their own privacy standards, which you can review at 
-              <a href="https://www.lemonsqueezy.com/privacy" className="text-purple-400 underline ml-1">Lemon Squeezy Privacy Policy</a>.
+              Our order process is conducted by our online reseller <strong className="text-white font-bold">Paddle.com</strong>. Paddle is the Merchant of Record for all our orders. 
             </p>
             <p className="text-slate-300 leading-relaxed">
-              We do not store your credit card details on our servers. Lemon Squeezy maintains PCI-DSS compliance to ensure your data is safe.
+              Paddle provides all customer service inquiries and handles returns. Your personal data will be processed by Paddle in accordance with their own <a href="https://paddle.com/legal/privacy" className="text-purple-400 underline hover:text-purple-300 transition-colors">Privacy Policy</a>.
             </p>
           </div>
 
-          {/* 3️⃣ قسم جمع المعلومات: لتوضيح البيانات المطلوبة لتسليم الأوردر */}
-          <div className="p-8 rounded-3xl bg-white/5 border border-white/10">
+          {/* Section 1: Information Collection */}
+          <div className="p-8 rounded-3xl bg-white/5 border border-white/10 mb-8">
             <div className="flex items-center gap-3 mb-4 text-white">
               <Eye className="w-6 h-6 text-purple-400" />
-              <h2 className="text-2xl font-bold m-0 text-white">Information Collection</h2>
+              <h2 className="text-2xl font-bold m-0 text-white">1. Information We Collect</h2>
             </div>
-            <ul className="list-disc list-inside space-y-3 text-slate-300">
-              <li><strong className="text-white">Email Address:</strong> Necessary for automated product delivery.</li>
-              <li><strong className="text-white">Transaction History:</strong> To provide support and manage your outreach assets.</li>
-              <li><strong className="text-white">IP Data:</strong> Used strictly for fraud prevention and security monitoring.</li>
+            <p className="text-slate-300 leading-relaxed mb-4">
+              When you use NetReach services, we collect the following information:
+            </p>
+            <ul className="list-disc list-inside space-y-3 text-slate-300 ml-4">
+              <li><strong className="text-white">Email Address:</strong> Used for instant automated product delivery.</li>
+              <li><strong className="text-white">Order Details:</strong> Specifics regarding your outreach infrastructure assets.</li>
+              <li><strong className="text-white">Technical Data:</strong> IP address and browser info for fraud prevention purposes.</li>
             </ul>
           </div>
+
+          {/* Section 2: Data Usage */}
+          <div className="p-8 rounded-3xl bg-white/5 border border-white/10 mb-8">
+            <div className="flex items-center gap-3 mb-4 text-white">
+              <FileText className="w-6 h-6 text-purple-400" />
+              <h2 className="text-2xl font-bold m-0 text-white">2. How We Use Data</h2>
+            </div>
+            <p className="text-slate-300">
+              We use your information strictly to fulfill orders, prevent fraudulent transactions, and comply with the mandatory requirements of our payment providers.
+            </p>
+          </div>
+
         </div>
 
         <div className="mt-12 p-8 rounded-3xl bg-white/5 border border-white/10 text-center">
           <p className="text-xs text-slate-500 uppercase tracking-widest">
-            © 2026 NetReach — Secured by Lemon Squeezy
+            © 2026 NetReach — Secured by Paddle
           </p>
         </div>
       </div>
