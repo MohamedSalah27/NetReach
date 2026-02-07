@@ -28,7 +28,6 @@ export const Checkout: React.FC = () => {
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // Production-grade Email Regex
   const validateEmail = (email: string) => {
     return String(email)
       .toLowerCase()
@@ -47,7 +46,6 @@ export const Checkout: React.FC = () => {
     setIsProcessing(true);
     showToast('Initializing secure connection...', 'info', 3000);
 
-    // Identify account type for backend
     let accountType = 0;
     const category = product.category.toLowerCase();
     const name = product.name.toLowerCase();
@@ -91,7 +89,6 @@ export const Checkout: React.FC = () => {
           'success',
           4000
         );
-        // Delay redirect slightly so user can read the success toast
         setTimeout(() => {
           window.location.assign(data.url);
         }, 800);
@@ -107,14 +104,7 @@ export const Checkout: React.FC = () => {
       );
       setIsProcessing(false);
     }
-  }, [
-    product,
-    totalPrice,
-    email,
-    quantity,
-    canProceed,
-    showToast,
-  ]);
+  }, [product, totalPrice, email, quantity, canProceed, showToast]);
 
   if (!product) {
     return <div className="min-h-screen bg-[#050508]" />;
@@ -247,36 +237,33 @@ export const Checkout: React.FC = () => {
                     </svg>
                   )}
                 </div>
-<label className="flex items-start gap-3 text-sm text-slate-300">
-  <input
-    type="checkbox"
-    required
-    className="mt-1 accent-purple-500"
-  />
-  <span className="leading-relaxed">
-    I have read and agree to the{' '}
-    <button
-      onClick={() => navigate('/terms')}
-      className="text-purple-400 underline hover:text-purple-300"
-    >
-      Terms & Conditions
-    </button>,{' '}
-    <button
-      onClick={() => navigate('/privacy')}
-      className="text-purple-400 underline hover:text-purple-300"
-    >
-      Privacy Policy
-    </button>, and{' '}
-    <button
-      onClick={() => navigate('/refund')}
-      className="text-purple-400 underline hover:text-purple-300"
-    >
-      Refund Policy
-    </button>.
-  </span>
-</label>
-
-
+                <span className="text-sm text-slate-300 leading-relaxed">
+                  I have read and agree to the{' '}
+                  <button
+                    type="button"
+                    onClick={() => navigate('/terms')}
+                    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
+                  >
+                    Terms & Conditions
+                  </button>
+                  ,{' '}
+                  <button
+                    type="button"
+                    onClick={() => navigate('/privacy')}
+                    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
+                  >
+                    Privacy Policy
+                  </button>
+                  , and{' '}
+                  <button
+                    type="button"
+                    onClick={() => navigate('/refund')}
+                    className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition-colors"
+                  >
+                    Refund Policy
+                  </button>
+                  .
+                </span>
               </label>
             </div>
 
@@ -286,14 +273,17 @@ export const Checkout: React.FC = () => {
                 <img
                   src={Bitcoin}
                   className="h-7 w-auto drop-shadow-[0_0_8px_rgba(247,147,26,0.3)]"
+                  alt="Bitcoin"
                 />
                 <img
                   src={USDC}
                   className="h-7 w-auto drop-shadow-[0_0_8px_rgba(39,117,202,0.3)]"
+                  alt="USDC"
                 />
                 <img
                   src={USDT}
                   className="h-7 w-auto drop-shadow-[0_0_8px_rgba(38,161,123,0.3)]"
+                  alt="USDT"
                 />
                 <div className="h-10 w-px bg-white/10 mx-2" />
                 <span className="text-[10px] font-medium text-slate-600 italic">
@@ -344,3 +334,5 @@ export const Checkout: React.FC = () => {
     </div>
   );
 };
+
+export default Checkout;
