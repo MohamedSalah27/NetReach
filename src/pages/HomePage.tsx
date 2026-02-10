@@ -300,7 +300,7 @@ export const HomePage: React.FC = () => {
               },
               { 
                 name: 'Automation Tools', 
-                price: '$200', 
+                price: '$300', 
                 tag: 'UNLIMITED',
                 gradient: 'from-orange-500 via-red-500 to-pink-600',
                 description: 'Full License · Updates'
