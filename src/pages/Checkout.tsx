@@ -8,12 +8,24 @@ import {
   Plus,
   Mail,
   Loader2,
+  Tag,
+  X,
+  CheckCircle2,
 } from 'lucide-react';
 import { useToast } from '../hooks/useToast';
 import USDT from '/images/usdt.avif';
 import USDC from '/images/usdc.avif';
 import Bitcoin from '/images/bitcoin.avif';
 import type { StoreProduct } from '../lib/types';
+
+// ✅ قاعدة بيانات الكوبونات (Frontend Only)
+const COUPONS: Record<string, { type: 'percentage' | 'fixed'; value: number; description: string }> = {
+  'WELCOME10': { type: 'percentage', value: 10, description: '10% off for new customers' },
+  'SAVE20': { type: 'percentage', value: 20, description: '20% discount' },
+  'HALF50': { type: 'percentage', value: 50, description: '50% off - Limited time!' },
+  'FIXED10': { type: 'fixed', value: 10, description: '$10 off your purchase' },
+  'FIXED25': { type: 'fixed', value: 25, description: '$25 discount' },
+};
 
 export const Checkout: React.FC = () => {
   const location = useLocation();
@@ -27,6 +39,16 @@ export const Checkout: React.FC = () => {
   const [email, setEmail] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+  
+  // ✅ Coupon states
+  const [couponCode, setCouponCode] = useState('');
+  const [appliedCoupon, setAppliedCoupon] = useState<{
+    code: string;
+    type: 'percentage' | 'fixed';
+    value: number;
+    discountAmount: number;
+    description: string;
+  } | null>(null);
 
   const validateEmail = (email: string) => {
     return String(email)
@@ -37,8 +59,55 @@ export const Checkout: React.FC = () => {
   };
 
   const isEmailValid = validateEmail(email);
-  const totalPrice = product ? product.price * quantity : 0;
+  const basePrice = product ? product.price * quantity : 0;
+  
+  // ✅ حساب السعر النهائي
+  const totalPrice = appliedCoupon
+    ? appliedCoupon.type === 'percentage'
+      ? basePrice - (basePrice * appliedCoupon.value / 100)
+      : Math.max(0, basePrice - appliedCoupon.value)
+    : basePrice;
+
   const canProceed = isEmailValid && agreedToTerms && !isProcessing;
+
+  // ✅ Apply Coupon (Frontend Only)
+  const handleApplyCoupon = () => {
+    const code = couponCode.trim().toUpperCase();
+    
+    if (!code) {
+      showToast('Please enter a coupon code', 'error', 2000);
+      return;
+    }
+
+    const coupon = COUPONS[code];
+
+    if (!coupon) {
+      showToast('Invalid coupon code', 'error', 3000);
+      return;
+    }
+
+    // ✅ حساب قيمة الخصم
+    const discountAmount = coupon.type === 'percentage'
+      ? basePrice * (coupon.value / 100)
+      : coupon.value;
+
+    setAppliedCoupon({
+      code,
+      type: coupon.type,
+      value: coupon.value,
+      discountAmount,
+      description: coupon.description,
+    });
+
+    showToast(`✅ ${coupon.description}`, 'success', 3000);
+  };
+
+  // ✅ Remove Coupon
+  const handleRemoveCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponCode('');
+    showToast('Coupon removed', 'info', 2000);
+  };
 
   const handleInitializePayment = useCallback(async () => {
     if (!product || !canProceed) return;
@@ -69,7 +138,7 @@ export const Checkout: React.FC = () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            price: totalPrice,
+            price: totalPrice, // ✅ السعر بعد الخصم
             payCurrency: 'usd',
             email: email,
             type: accountType,
@@ -157,7 +226,10 @@ export const Checkout: React.FC = () => {
                 <div className="flex items-center gap-4 bg-black rounded-2xl p-2 border border-white/5">
                   <button
                     type="button"
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    onClick={() => {
+                      setQuantity(Math.max(1, quantity - 1));
+                      setAppliedCoupon(null); // Reset coupon
+                    }}
                     className="p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-colors"
                   >
                     <Minus className="w-4 h-4 text-slate-400 hover:text-white" />
@@ -169,19 +241,79 @@ export const Checkout: React.FC = () => {
                     onChange={(e) => {
                       const val = parseInt(e.target.value);
                       setQuantity(isNaN(val) || val < 1 ? 1 : val);
+                      setAppliedCoupon(null); // Reset coupon
                     }}
                     className="text-xl font-black w-12 text-center bg-transparent border-none focus:outline-none focus:ring-0 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   />
 
                   <button
                     type="button"
-                    onClick={() => setQuantity(quantity + 1)}
+                    onClick={() => {
+                      setQuantity(quantity + 1);
+                      setAppliedCoupon(null); // Reset coupon
+                    }}
                     className="p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-colors"
                   >
                     <Plus className="w-4 h-4 text-slate-400 hover:text-white" />
                   </button>
                 </div>
               </div>
+            </div>
+
+            {/* ✅ Coupon Code */}
+            <div className="mb-6">
+              <label className="block text-[10px] text-slate-500 uppercase font-black tracking-[0.2em] mb-4">
+                Discount Code (Optional)
+              </label>
+              
+              {!appliedCoupon ? (
+                <div className="flex gap-2">
+                  <div className="relative flex-1">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <Tag className="w-4 h-4 text-slate-500" />
+                    </div>
+                    <input
+                      type="text"
+                      value={couponCode}
+                      onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                      onKeyPress={(e) => e.key === 'Enter' && handleApplyCoupon()}
+                      placeholder="Enter coupon code"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-sm focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all placeholder:text-slate-600 uppercase"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleApplyCoupon}
+                    disabled={!couponCode.trim()}
+                    className={`px-6 py-4 rounded-2xl font-bold transition-all ${
+                      couponCode.trim()
+                        ? 'bg-purple-500 hover:bg-purple-600 text-white cursor-pointer'
+                        : 'bg-white/5 text-slate-600 cursor-not-allowed'
+                    }`}
+                  >
+                    Apply
+                  </button>
+                </div>
+              ) : (
+                <div className="p-4 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-500" />
+                    <div>
+                      <p className="text-sm font-bold text-green-400">{appliedCoupon.description}</p>
+                      <p className="text-xs text-slate-400 mt-0.5">
+                        Code: {appliedCoupon.code} • Saved ${appliedCoupon.discountAmount.toFixed(2)}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleRemoveCoupon}
+                    className="p-2 hover:bg-red-500/10 rounded-lg transition-colors cursor-pointer"
+                  >
+                    <X className="w-4 h-4 text-slate-400 hover:text-red-400" />
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Email Field */}
@@ -270,21 +402,9 @@ export const Checkout: React.FC = () => {
             {/* Total & Action */}
             <div className="mt-auto pt-8 border-t border-white/10">
               <div className="mb-10 flex items-center gap-8">
-                <img
-                  src={Bitcoin}
-                  className="h-7 w-auto drop-shadow-[0_0_8px_rgba(247,147,26,0.3)]"
-                  alt="Bitcoin"
-                />
-                <img
-                  src={USDC}
-                  className="h-7 w-auto drop-shadow-[0_0_8px_rgba(39,117,202,0.3)]"
-                  alt="USDC"
-                />
-                <img
-                  src={USDT}
-                  className="h-7 w-auto drop-shadow-[0_0_8px_rgba(38,161,123,0.3)]"
-                  alt="USDT"
-                />
+                <img src={Bitcoin} className="h-7 w-auto drop-shadow-[0_0_8px_rgba(247,147,26,0.3)]" alt="Bitcoin" />
+                <img src={USDC} className="h-7 w-auto drop-shadow-[0_0_8px_rgba(39,117,202,0.3)]" alt="USDC" />
+                <img src={USDT} className="h-7 w-auto drop-shadow-[0_0_8px_rgba(38,161,123,0.3)]" alt="USDT" />
                 <div className="h-10 w-px bg-white/10 mx-2" />
                 <span className="text-[10px] font-medium text-slate-600 italic">
                   Settlement Ready
@@ -296,9 +416,19 @@ export const Checkout: React.FC = () => {
                   <p className="text-slate-500 text-xs uppercase font-black tracking-widest mb-1">
                     Total Investment
                   </p>
-                  <p className="text-5xl font-black text-white">
+                  {appliedCoupon && (
+                    <p className="text-lg text-slate-500 line-through mb-1">
+                      ${basePrice.toLocaleString()}
+                    </p>
+                  )}
+                  <p className={`text-5xl font-black ${appliedCoupon ? 'text-green-400' : 'text-white'}`}>
                     ${totalPrice.toLocaleString()}
                   </p>
+                  {appliedCoupon && (
+                    <p className="text-sm text-green-400 mt-2 font-bold">
+                      🎉 You save ${appliedCoupon.discountAmount.toFixed(2)}!
+                    </p>
+                  )}
                 </div>
                 <p className="text-green-500 text-xs font-bold flex items-center gap-1">
                   <ShieldCheck className="w-3 h-3" /> Encrypted
