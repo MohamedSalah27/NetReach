@@ -11,6 +11,8 @@ import {
   Tag,
   X,
   CheckCircle2,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 import { useToast } from '../hooks/useToast';
 import USDT from '/images/usdt.avif';
@@ -18,7 +20,7 @@ import USDC from '/images/usdc.avif';
 import Bitcoin from '/images/bitcoin.avif';
 import type { StoreProduct } from '../lib/types';
 
-// ✅ قاعدة بيانات الكوبونات (Frontend Only)
+// ✅ Coupon database (Frontend Only)
 const COUPONS: Record<string, { type: 'percentage' | 'fixed'; value: number; description: string }> = {
   'WELCOME10': { type: 'percentage', value: 10, description: '10% off for new customers' },
   'SAVE20': { type: 'percentage', value: 20, description: '20% discount' },
@@ -49,6 +51,7 @@ export const Checkout: React.FC = () => {
     discountAmount: number;
     description: string;
   } | null>(null);
+  const [isCouponSectionOpen, setIsCouponSectionOpen] = useState(false);
 
   const validateEmail = (email: string) => {
     return String(email)
@@ -61,7 +64,7 @@ export const Checkout: React.FC = () => {
   const isEmailValid = validateEmail(email);
   const basePrice = product ? product.price * quantity : 0;
   
-  // ✅ حساب السعر النهائي
+  // ✅ Calculate final price
   const totalPrice = appliedCoupon
     ? appliedCoupon.type === 'percentage'
       ? basePrice - (basePrice * appliedCoupon.value / 100)
@@ -86,7 +89,7 @@ export const Checkout: React.FC = () => {
       return;
     }
 
-    // ✅ حساب قيمة الخصم
+    // ✅ Calculate discount amount
     const discountAmount = coupon.type === 'percentage'
       ? basePrice * (coupon.value / 100)
       : coupon.value;
@@ -100,6 +103,7 @@ export const Checkout: React.FC = () => {
     });
 
     showToast(`✅ ${coupon.description}`, 'success', 3000);
+    setIsCouponSectionOpen(false); // Close section after applying
   };
 
   // ✅ Remove Coupon
@@ -107,6 +111,7 @@ export const Checkout: React.FC = () => {
     setAppliedCoupon(null);
     setCouponCode('');
     showToast('Coupon removed', 'info', 2000);
+    setIsCouponSectionOpen(true); // Reopen for user to try another code
   };
 
   const handleInitializePayment = useCallback(async () => {
@@ -138,7 +143,7 @@ export const Checkout: React.FC = () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            price: totalPrice, // ✅ السعر بعد الخصم
+            price: totalPrice, // ✅ Price after discount
             payCurrency: 'usd',
             email: email,
             type: accountType,
@@ -228,7 +233,13 @@ export const Checkout: React.FC = () => {
                     type="button"
                     onClick={() => {
                       setQuantity(Math.max(1, quantity - 1));
-                      setAppliedCoupon(null); // Reset coupon
+                      if (appliedCoupon) {
+                        // Recalculate discount for new quantity
+                        const discountAmount = appliedCoupon.type === 'percentage'
+                          ? (product.price * Math.max(1, quantity - 1)) * (appliedCoupon.value / 100)
+                          : appliedCoupon.value;
+                        setAppliedCoupon({ ...appliedCoupon, discountAmount });
+                      }
                     }}
                     className="p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-colors"
                   >
@@ -240,8 +251,14 @@ export const Checkout: React.FC = () => {
                     value={quantity}
                     onChange={(e) => {
                       const val = parseInt(e.target.value);
-                      setQuantity(isNaN(val) || val < 1 ? 1 : val);
-                      setAppliedCoupon(null); // Reset coupon
+                      const newQty = isNaN(val) || val < 1 ? 1 : val;
+                      setQuantity(newQty);
+                      if (appliedCoupon) {
+                        const discountAmount = appliedCoupon.type === 'percentage'
+                          ? (product.price * newQty) * (appliedCoupon.value / 100)
+                          : appliedCoupon.value;
+                        setAppliedCoupon({ ...appliedCoupon, discountAmount });
+                      }
                     }}
                     className="text-xl font-black w-12 text-center bg-transparent border-none focus:outline-none focus:ring-0 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   />
@@ -250,7 +267,12 @@ export const Checkout: React.FC = () => {
                     type="button"
                     onClick={() => {
                       setQuantity(quantity + 1);
-                      setAppliedCoupon(null); // Reset coupon
+                      if (appliedCoupon) {
+                        const discountAmount = appliedCoupon.type === 'percentage'
+                          ? (product.price * (quantity + 1)) * (appliedCoupon.value / 100)
+                          : appliedCoupon.value;
+                        setAppliedCoupon({ ...appliedCoupon, discountAmount });
+                      }
                     }}
                     className="p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-colors"
                   >
@@ -258,62 +280,6 @@ export const Checkout: React.FC = () => {
                   </button>
                 </div>
               </div>
-            </div>
-
-            {/* ✅ Coupon Code */}
-            <div className="mb-6">
-              <label className="block text-[10px] text-slate-500 uppercase font-black tracking-[0.2em] mb-4">
-                Discount Code (Optional)
-              </label>
-              
-              {!appliedCoupon ? (
-                <div className="flex gap-2">
-                  <div className="relative flex-1">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <Tag className="w-4 h-4 text-slate-500" />
-                    </div>
-                    <input
-                      type="text"
-                      value={couponCode}
-                      onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
-                      onKeyPress={(e) => e.key === 'Enter' && handleApplyCoupon()}
-                      placeholder="Enter coupon code"
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-sm focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all placeholder:text-slate-600 uppercase"
-                    />
-                  </div>
-                  <button
-                    type="button"
-                    onClick={handleApplyCoupon}
-                    disabled={!couponCode.trim()}
-                    className={`px-6 py-4 rounded-2xl font-bold transition-all ${
-                      couponCode.trim()
-                        ? 'bg-purple-500 hover:bg-purple-600 text-white cursor-pointer'
-                        : 'bg-white/5 text-slate-600 cursor-not-allowed'
-                    }`}
-                  >
-                    Apply
-                  </button>
-                </div>
-              ) : (
-                <div className="p-4 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <div>
-                      <p className="text-sm font-bold text-green-400">{appliedCoupon.description}</p>
-                      <p className="text-xs text-slate-400 mt-0.5">
-                        Code: {appliedCoupon.code} • Saved ${appliedCoupon.discountAmount.toFixed(2)}
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={handleRemoveCoupon}
-                    className="p-2 hover:bg-red-500/10 rounded-lg transition-colors cursor-pointer"
-                  >
-                    <X className="w-4 h-4 text-slate-400 hover:text-red-400" />
-                  </button>
-                </div>
-              )}
             </div>
 
             {/* Email Field */}
@@ -400,8 +366,9 @@ export const Checkout: React.FC = () => {
             </div>
 
             {/* Total & Action */}
-            <div className="mt-auto pt-8 border-t border-white/10">
-              <div className="mb-10 flex items-center gap-8">
+            <div className="mt-auto pt-6 border-t border-white/10">
+              {/* Payment methods icons */}
+              <div className="mb-6 flex items-center gap-8">
                 <img src={Bitcoin} className="h-7 w-auto drop-shadow-[0_0_8px_rgba(247,147,26,0.3)]" alt="Bitcoin" />
                 <img src={USDC} className="h-7 w-auto drop-shadow-[0_0_8px_rgba(39,117,202,0.3)]" alt="USDC" />
                 <img src={USDT} className="h-7 w-auto drop-shadow-[0_0_8px_rgba(38,161,123,0.3)]" alt="USDT" />
@@ -411,6 +378,77 @@ export const Checkout: React.FC = () => {
                 </span>
               </div>
 
+              {/* ✅ Collapsible Coupon Section - Amazon Style */}
+              <div className="mb-6">
+                {!appliedCoupon ? (
+                  <div className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden">
+                    {/* Header - Always visible */}
+                    <button
+                      type="button"
+                      onClick={() => setIsCouponSectionOpen(!isCouponSectionOpen)}
+                      className="w-full px-4 py-3 flex items-center justify-between hover:bg-white/5 transition-colors cursor-pointer"
+                    >
+                      <div className="flex items-center gap-2 text-sm text-slate-300">
+                        <Tag className="w-4 h-4 text-purple-400" />
+                        <span>Have a discount code?</span>
+                      </div>
+                      {isCouponSectionOpen ? (
+                        <ChevronUp className="w-4 h-4 text-slate-400" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4 text-slate-400" />
+                      )}
+                    </button>
+
+                    {/* Expandable Content */}
+                    {isCouponSectionOpen && (
+                      <div className="px-4 pb-4 border-t border-white/10">
+                        <div className="flex gap-2 mt-3">
+                          <input
+                            type="text"
+                            value={couponCode}
+                            onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                            onKeyPress={(e) => e.key === 'Enter' && handleApplyCoupon()}
+                            placeholder="Enter code"
+                            className="flex-1 bg-white/5 border border-white/10 rounded-xl py-2.5 px-3 text-sm focus:outline-none focus:border-purple-500/50 transition-all placeholder:text-slate-600 uppercase"
+                          />
+                          <button
+                            type="button"
+                            onClick={handleApplyCoupon}
+                            disabled={!couponCode.trim()}
+                            className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all ${
+                              couponCode.trim()
+                                ? 'bg-purple-500 hover:bg-purple-600 text-white cursor-pointer'
+                                : 'bg-white/5 text-slate-600 cursor-not-allowed'
+                            }`}
+                          >
+                            Apply
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  // Applied Coupon Display
+                  <div className="p-3 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                      <div>
+                        <p className="text-sm font-bold text-green-400">{appliedCoupon.code} applied</p>
+                        <p className="text-xs text-slate-400">-${appliedCoupon.discountAmount.toFixed(2)}</p>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleRemoveCoupon}
+                      className="p-1.5 hover:bg-red-500/10 rounded-lg transition-colors cursor-pointer"
+                    >
+                      <X className="w-4 h-4 text-slate-400 hover:text-red-400" />
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Total Price */}
               <div className="flex justify-between items-end mb-8">
                 <div>
                   <p className="text-slate-500 text-xs uppercase font-black tracking-widest mb-1">
@@ -426,7 +464,7 @@ export const Checkout: React.FC = () => {
                   </p>
                   {appliedCoupon && (
                     <p className="text-sm text-green-400 mt-2 font-bold">
-                      🎉 You save ${appliedCoupon.discountAmount.toFixed(2)}!
+                      🎉 You saved ${appliedCoupon.discountAmount.toFixed(2)}!
                     </p>
                   )}
                 </div>
@@ -435,6 +473,7 @@ export const Checkout: React.FC = () => {
                 </p>
               </div>
 
+              {/* Purchase Button */}
               <button
                 onClick={handleInitializePayment}
                 disabled={!canProceed}
