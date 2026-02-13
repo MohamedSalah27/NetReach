@@ -27,6 +27,7 @@ const COUPONS: Record<string, { type: 'percentage' | 'fixed'; value: number; des
   'HALF50': { type: 'percentage', value: 50, description: '50% off - Limited time!' },
   'FIXED10': { type: 'fixed', value: 10, description: '$10 off your purchase' },
   'FIXED25': { type: 'fixed', value: 25, description: '$25 discount' },
+  'CHRIS10': { type: 'percentage', value: 10, description: '10% discount' },
 };
 
 export const Checkout: React.FC = () => {
