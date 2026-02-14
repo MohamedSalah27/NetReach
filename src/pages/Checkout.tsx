@@ -22,7 +22,7 @@ import type { StoreProduct } from '../lib/types';
 
 // ✅ Coupon database (Frontend Only)
 const COUPONS: Record<string, { type: 'percentage' | 'fixed'; value: number; description: string }> = {
-  'ROXY10': { type: 'percentage', value: 10, description: '10% off for new customers' },
+  'ROXYY10': { type: 'percentage', value: 10, description: '10% off for new customers' },
   'SAVE20': { type: 'percentage', value: 20, description: '20% discount' },
   'HALF50': { type: 'percentage', value: 50, description: '50% off - Limited time!' },
   'FIXED10': { type: 'fixed', value: 10, description: '$10 off your purchase' },
