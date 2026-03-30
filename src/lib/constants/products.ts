@@ -34,7 +34,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'Mobile ISP Proxy (USA / EU)',
     description: `Real 4G/5G mobile IPs with ultra-low ban rates. 
     Ideal for X, Instagram, and high-risk automation at scale.`,
-    price: 5.5,
+    price: 6,
     image: '/images/proxy.avif',
   },
   {
