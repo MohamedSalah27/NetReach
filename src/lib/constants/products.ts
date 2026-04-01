@@ -63,7 +63,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'X Automation Software',
     description:
       'X Automation Software facilitates automatic X profile updates, posting, bulk account interaction, earning, and automated data scanning of any account of any target audience',
-    price: 400,
+    price: 1000,
     image: '/images/twitterTool.avif',
   },
 ];
