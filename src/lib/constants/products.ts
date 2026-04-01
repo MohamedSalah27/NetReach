@@ -54,7 +54,7 @@ export const STORE_PRODUCTS: StoreProduct[] = [
     name: 'Instagram Automation Software',
     description:
       'Instagram Automation Software supports automatic posting of sales posts, Instagram reels, automatic searching and following based on potential Username lists, facilitates easy order closing.',
-    price: 400,
+    price: 1000,
     image: '/images/instagramTool.avif',
   },
   {
